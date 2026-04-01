@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report: PropSpecific.com | Prepared by DoorGrow</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; background: #f4f6f9; color: #333; line-height: 1.6; }
+
+  /* Header */
+  .report-header { background: linear-gradient(135deg, #021f42 0%, #0a3d7a 100%); color: #fff; padding: 48px 40px; position: relative; overflow: hidden; }
+  .report-header::after { content: ''; position: absolute; top: -50%; right: -10%; width: 400px; height: 400px; background: rgba(75, 209, 55, 0.08); border-radius: 50%; }
+  .report-header h1 { font-size: 32px; font-weight: 700; margin-bottom: 6px; }
+  .report-header .subtitle { font-size: 16px; opacity: 0.85; margin-bottom: 24px; }
+  .report-meta { display: flex; gap: 32px; flex-wrap: wrap; font-size: 14px; opacity: 0.9; }
+  .report-meta span { display: flex; align-items: center; gap: 6px; }
+
+  /* Container */
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  /* Grade Badge */
+  .grade-section { text-align: center; padding: 40px 20px; }
+  .grade-circle { width: 140px; height: 140px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 64px; font-weight: 800; margin-bottom: 16px; }
+  .grade-D { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: #fff; box-shadow: 0 8px 32px rgba(231,76,60,0.3); }
+  .grade-label { font-size: 18px; color: #555; margin-bottom: 8px; }
+  .grade-summary { font-size: 15px; color: #666; max-width: 640px; margin: 0 auto; }
+
+  /* Score Bar */
+  .score-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .score-label { width: 160px; font-size: 14px; font-weight: 600; color: #444; flex-shrink: 0; }
+  .score-bar-bg { flex: 1; height: 10px; background: #e0e4ea; border-radius: 5px; overflow: hidden; }
+  .score-bar { height: 100%; border-radius: 5px; transition: width 0.5s ease; }
+  .score-bar.red { background: linear-gradient(90deg, #e74c3c, #c0392b); }
+  .score-bar.yellow { background: linear-gradient(90deg, #f39c12, #e67e22); }
+  .score-bar.green { background: linear-gradient(90deg, #4bd137, #27ae60); }
+  .score-val { width: 42px; text-align: right; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+
+  /* Section */
+  .audit-section { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 24px; overflow: hidden; }
+  .section-header { padding: 20px 28px; border-bottom: 1px solid #eef0f4; display: flex; align-items: center; gap: 12px; }
+  .section-header h2 { font-size: 20px; color: #021f42; font-weight: 700; }
+  .section-icon { font-size: 22px; }
+  .section-body { padding: 24px 28px; }
+
+  /* Finding Items */
+  .finding { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid #f3f4f6; }
+  .finding:last-child { border-bottom: none; }
+  .finding-icon { font-size: 20px; flex-shrink: 0; width: 28px; text-align: center; padding-top: 2px; }
+  .finding-content { flex: 1; }
+  .finding-title { font-weight: 600; font-size: 15px; color: #222; margin-bottom: 4px; }
+  .finding-detail { font-size: 14px; color: #555; }
+  .finding-detail code { background: #f0f2f5; padding: 2px 6px; border-radius: 4px; font-size: 13px; color: #c0392b; }
+
+  /* Severity Tags */
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 20px; margin-left: 8px; vertical-align: middle; }
+  .tag-critical { background: #fde8e8; color: #c0392b; }
+  .tag-warning { background: #fff4e0; color: #b7791f; }
+  .tag-good { background: #e6f9e6; color: #1e7e34; }
+  .tag-info { background: #e8f0fe; color: #1a56db; }
+
+  /* Action Plan */
+  .action-item { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid #f3f4f6; }
+  .action-item:last-child { border-bottom: none; }
+  .action-num { width: 32px; height: 32px; border-radius: 50%; background: #021f42; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+  .action-content { flex: 1; }
+  .action-title { font-weight: 700; font-size: 15px; color: #021f42; margin-bottom: 4px; }
+  .action-desc { font-size: 14px; color: #555; }
+  .impact-high { color: #c0392b; font-weight: 700; }
+  .impact-med { color: #b7791f; font-weight: 700; }
+  .impact-low { color: #27ae60; font-weight: 700; }
+
+  /* Table */
+  .info-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .info-table td { padding: 10px 12px; border-bottom: 1px solid #f3f4f6; }
+  .info-table td:first-child { font-weight: 600; color: #444; width: 200px; }
+  .info-table td:last-child { color: #555; word-break: break-all; }
+
+  /* Footer */
+  .report-footer { background: #021f42; color: #fff; padding: 32px 40px; text-align: center; margin-top: 40px; }
+  .report-footer a { color: #4bd137; text-decoration: none; font-weight: 700; }
+  .report-footer a:hover { text-decoration: underline; }
+  .footer-logo { font-size: 24px; font-weight: 800; margin-bottom: 8px; }
+  .footer-tagline { font-size: 14px; opacity: 0.8; margin-bottom: 16px; }
+  .footer-cta { display: inline-block; background: #4bd137; color: #021f42; font-weight: 700; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-size: 15px; margin-top: 12px; }
+  .footer-cta:hover { background: #3db82d; text-decoration: none; }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .report-header { padding: 32px 20px; }
+    .report-header h1 { font-size: 24px; }
+    .report-meta { gap: 16px; }
+    .section-body { padding: 18px 18px; }
+    .score-label { width: 120px; font-size: 13px; }
+    .grade-circle { width: 110px; height: 110px; font-size: 50px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="report-header">
+  <div class="container">
+    <h1>SEO Audit Report</h1>
+    <div class="subtitle">PropSpecific.com &mdash; Property Specific Realty &amp; Management</div>
+    <div class="report-meta">
+      <span>&#128197; March 27, 2026</span>
+      <span>&#127968; Wake Forest, NC</span>
+      <span>&#128100; Prepared for Carl Driver</span>
+      <span>&#128279; propertyspecificrealty.com</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="grade-section">
+  <div class="grade-circle grade-D">D+</div>
+  <div class="grade-label">Overall SEO Health Score</div>
+  <div class="grade-summary">
+    This site has a professional design and decent foundational structure, but it's undermined by several critical technical issues, brand identity problems, and missed local SEO opportunities. The domain confusion alone (propspecific.com vs. propertyspecificrealty.com) is costing visibility. There's real upside here with focused fixes.
+  </div>
+</div>
+
+<!-- SCORE BREAKDOWN -->
+<div class="audit-section">
+  <div class="section-header">
+    <span class="section-icon">&#128202;</span>
+    <h2>Score Breakdown</h2>
+  </div>
+  <div class="section-body">
+    <div class="score-row">
+      <div class="score-label">Technical SEO</div>
+      <div class="score-bar-bg"><div class="score-bar red" style="width:35%"></div></div>
+      <div class="score-val" style="color:#c0392b">35/100</div>
+    </div>
+    <div class="score-row">
+      <div class="score-label">On-Page SEO</div>
+      <div class="score-bar-bg"><div class="score-bar yellow" style="width:45%"></div></div>
+      <div class="score-val" style="color:#b7791f">45/100</div>
+    </div>
+    <div class="score-row">
+      <div class="score-label">Content Quality</div>
+      <div class="score-bar-bg"><div class="score-bar yellow" style="width:50%"></div></div>
+      <div class="score-val" style="color:#b7791f">50/100</div>
+    </div>
+    <div class="score-row">
+      <div class="score-label">Local SEO</div>
+      <div class="score-bar-bg"><div class="score-bar yellow" style="width:40%"></div></div>
+      <div class="score-val" style="color:#b7791f">40/100</div>
+    </div>
+    <div class="score-row">
+      <div class="score-label">Performance</div>
+      <div class="score-bar-bg"><div class="score-bar red" style="width:30%"></div></div>
+      <div class="score-val" style="color:#c0392b">30/100</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1: TECHNICAL SEO -->
+<div class="audit-section">
+  <div class="section-header">
+    <span class="section-icon">&#9881;&#65039;</span>
+    <h2>Technical SEO</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="finding">
+      <div class="finding-icon">&#10060;</div>
+      <div class="finding-content">
+        <div class="finding-title">Domain Identity Crisis <span class="tag tag-critical">Critical</span></div>
+        <div class="finding-detail">
+          The business operates on <strong>three different domains</strong>: <code>propspecific.com</code> redirects to <code>propertyspecificrealty.com</code> (the realty site), while <code>propertyspecificmanagement.com</code> is an entirely separate property management site. The canonical URL points to <code>propertyspecificrealty.com</code>, but users may be typing or searching for <code>propspecific.com</code>. This splits brand authority and confuses search engines about which domain to rank.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#10060;</div>
+      <div class="finding-content">
+        <div class="finding-title">Sitemap References Wrong Domain <span class="tag tag-critical">Critical</span></div>
+        <div class="finding-detail">
+          The <code>robots.txt</code> on <code>propspecific.com</code> references a sitemap at <code>https://propertyspecificrealty.com/sitemap_index.xml</code>. This is technically correct since propspecific.com redirects, but it means Google may not properly crawl all pages. The sitemap itself references <code>propertyspecificrealty.com</code> URLs only.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#10060;</div>
+      <div class="finding-content">
+        <div class="finding-title">Null Schema Markup Output <span class="tag tag-critical">Critical</span></div>
+        <div class="finding-detail">
+          The homepage contains a <code>&lt;script type="application/ld+json"&gt;null&lt;/script&gt;</code> tag, which is invalid structured data. This could trigger errors in Google Search Console and tells Google something is broken on the page.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">Excessive Render-Blocking Resources <span class="tag tag-warning">Warning</span></div>
+        <div class="finding-detail">
+          The homepage loads <strong>22 CSS files</strong> and <strong>39 JavaScript files</strong>, with at least 4 render-blocking scripts loaded in the <code>&lt;head&gt;</code> without <code>defer</code> or <code>async</code>. jQuery and jQuery Migrate are loaded synchronously. The raw HTML alone is 157KB. This dramatically slows initial page load.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">Duplicate Google Analytics Tags <span class="tag tag-warning">Warning</span></div>
+        <div class="finding-detail">
+          Two separate Google Analytics properties are installed: <code>G-3TH7B2S1B2</code> and <code>G-K1QWTQ2XTE</code>, plus a Google Tag Manager container (<code>GTM-PWB8LDG9</code>). Duplicate tracking inflates pageview counts, skews analytics data, and adds unnecessary load time.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9989;</div>
+      <div class="finding-content">
+        <div class="finding-title">HTTPS Properly Configured <span class="tag tag-good">Good</span></div>
+        <div class="finding-detail">
+          HTTP redirects to HTTPS correctly via 301 redirect. SSL certificate is valid and served through Cloudflare CDN.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9989;</div>
+      <div class="finding-content">
+        <div class="finding-title">Yoast SEO Plugin Installed <span class="tag tag-good">Good</span></div>
+        <div class="finding-detail">
+          Yoast SEO v24.9 is active and generating meta tags, canonical URLs, Open Graph data, and XML sitemaps. Good foundation, but several outputs need attention (see issues above).
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9989;</div>
+      <div class="finding-content">
+        <div class="finding-title">Mobile Viewport Set <span class="tag tag-good">Good</span></div>
+        <div class="finding-detail">
+          The <code>viewport</code> meta tag is properly configured with <code>width=device-width, initial-scale=1</code>. A dedicated mobile header component is also present.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9989;</div>
+      <div class="finding-content">
+        <div class="finding-title">Robots.txt Present and Functional <span class="tag tag-good">Good</span></div>
+        <div class="finding-detail">
+          The robots.txt properly blocks admin areas and IDX search result pages (which could create duplicate content issues). It allows <code>/wp-admin/admin-ajax.php</code> and <code>/wp-content/</code>.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 2: ON-PAGE SEO -->
+<div class="audit-section">
+  <div class="section-header">
+    <span class="section-icon">&#128196;</span>
+    <h2>On-Page SEO</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">Title Tag Doesn't Target Property Management <span class="tag tag-warning">Warning</span></div>
+        <div class="finding-detail">
+          Current title: <code>Property Specific Realty | Full Service Real Estate Firm</code>. Carl's business focuses on property management, but the title only mentions "Real Estate Firm." There's no mention of property management, Wake Forest, NC, or any location keywords. A better title would target the actual service and location.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">Meta Description is Generic <span class="tag tag-warning">Warning</span></div>
+        <div class="finding-detail">
+          Current meta description: <em>"Serving The Raleigh, Wake Forest and Surrounding Areas | We are known for offering a masterful market education call for potential buyers and sellers."</em> This reads more like an internal tagline than a search-optimized description. It doesn't mention property management, specific services, or include a call to action.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">H1 Tag is Vague <span class="tag tag-warning">Warning</span></div>
+        <div class="finding-detail">
+          The H1 tag reads: <code>Full Service Real Estate Firm Serving the Raleigh, Wake Forest and Surrounding Areas</code>. While it includes location, it's inside the hero slider and styled as a tagline. There's only 1 H1 tag (good), but it doesn't target property management keywords at all.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#10060;</div>
+      <div class="finding-content">
+        <div class="finding-title">Weak Heading Hierarchy <span class="tag tag-critical">Critical</span></div>
+        <div class="finding-detail">
+          The only H2 tags on the page are <code>Main Content</code> (a hidden accessibility tag) and <code>CTA</code> (a screen-reader-only tag). There are no visible, SEO-functional H2 or H3 headings. Section titles like "Featured Properties" are rendered inside <code>&lt;span&gt;</code> tags inside generic divs, not proper heading tags. This means Google can't understand the page structure.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">20 Images Missing Alt Text <span class="tag tag-warning">Warning</span></div>
+        <div class="finding-detail">
+          Of ~90 images on the page, 20 have no <code>alt</code> attribute at all. While most property listing images do have descriptive alt text (address-based), the missing ones represent lost opportunities for image search visibility and accessibility compliance.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">Logo Alt Text Says "Lori Webb" Not Company Name <span class="tag tag-warning">Warning</span></div>
+        <div class="finding-detail">
+          The site logo's alt text is <code>Lori Webb</code> instead of <code>Property Specific Realty</code> or <code>Property Specific Management</code>. This is repeated across at least 4 logo instances. The alt text for logos should match the business name for brand signal consistency.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9989;</div>
+      <div class="finding-content">
+        <div class="finding-title">Canonical URL Set <span class="tag tag-good">Good</span></div>
+        <div class="finding-detail">
+          A canonical tag is properly set to <code>https://propertyspecificrealty.com/</code>, which prevents duplicate content issues from the propspecific.com redirect.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9989;</div>
+      <div class="finding-content">
+        <div class="finding-title">Open Graph Tags Present <span class="tag tag-good">Good</span></div>
+        <div class="finding-detail">
+          OG title, description, image, and URL are all set. Twitter card is configured as <code>summary_large_image</code>. Social sharing should display correctly.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 3: CONTENT QUALITY -->
+<div class="audit-section">
+  <div class="section-header">
+    <span class="section-icon">&#9997;&#65039;</span>
+    <h2>Content Quality &amp; E-E-A-T</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">Minimal Homepage Content <span class="tag tag-warning">Warning</span></div>
+        <div class="finding-detail">
+          The homepage body text is extremely thin. The only paragraph of actual content is in the "welcome" section: <em>"Want to know the story behind our name? Every client deserves a custom-tailored buying and selling experience..."</em> That's roughly 60 words of unique content. Google needs 300+ words of quality content to properly understand and rank a page.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">No Property Management Content on Homepage <span class="tag tag-warning">Warning</span></div>
+        <div class="finding-detail">
+          Property management is a major revenue stream, but it only appears as a nav link pointing to a completely separate domain (<code>propertyspecificmanagement.com</code>). There's zero property management content, service descriptions, or keywords on the main site. This means the main domain gets no SEO benefit for PM-related searches.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">Blog Content is AI-Generated Looking <span class="tag tag-warning">Warning</span></div>
+        <div class="finding-detail">
+          The latest blog post ("Pet-friendly areas in Youngsville, North Carolina") has a BlogPosting schema with a 250+ word description that reads like AI-generated content. The author is listed as "Chris Webb" with an <code>@type: Organization</code> (should be <code>Person</code>). Google's helpful content system penalizes sites with thin or AI-generated content that doesn't add original value.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9989;</div>
+      <div class="finding-content">
+        <div class="finding-title">Blog Exists and is Active <span class="tag tag-good">Good</span></div>
+        <div class="finding-detail">
+          The sitemap shows blog posts with the most recent published June 26, 2025, and area/community pages are present. There's a content publishing cadence in place, which is a strong foundation to build on.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9989;</div>
+      <div class="finding-content">
+        <div class="finding-title">Local Area Pages Present <span class="tag tag-good">Good</span></div>
+        <div class="finding-detail">
+          The navigation includes an "Areas" section with community pages. The sitemap includes a dedicated <code>aios-communities-sitemap.xml</code>. This is great for local SEO when properly optimized with unique content per area.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 4: LOCAL SEO -->
+<div class="audit-section">
+  <div class="section-header">
+    <span class="section-icon">&#128205;</span>
+    <h2>Local SEO</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="finding">
+      <div class="finding-icon">&#10060;</div>
+      <div class="finding-content">
+        <div class="finding-title">Phone Number Mismatch in Schema vs. Display <span class="tag tag-critical">Critical</span></div>
+        <div class="finding-detail">
+          The RealEstateAgent schema markup lists the phone number as <code>+1-919-0307-7767</code>, but the phone number displayed on the website is <code>919.263.1291</code>. This inconsistency confuses Google and can hurt local search rankings. NAP (Name, Address, Phone) consistency is one of the top local ranking factors.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">Schema Lists "Lori Webb" but Business is "Property Specific" <span class="tag tag-warning">Warning</span></div>
+        <div class="finding-detail">
+          The footer copyright says <code>&copy; 2026. Lori Webb. All rights reserved.</code>, logo alt text says "Lori Webb", and the schema lists the business separately as "Property Specific Realty." For Carl Driver's property management business, this creates brand confusion. Google may not know which entity to associate with the business.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">No LocalBusiness or PropertyManagement Schema <span class="tag tag-warning">Warning</span></div>
+        <div class="finding-detail">
+          While a <code>RealEstateAgent</code> schema exists (good), there's no <code>LocalBusiness</code> or property-management-specific schema. For property management searches, Google needs explicit signals about PM services, service areas, and business type.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9989;</div>
+      <div class="finding-content">
+        <div class="finding-title">RealEstateAgent Schema Has Address <span class="tag tag-good">Good</span></div>
+        <div class="finding-detail">
+          The structured data includes the business address: <code>143 Wait Ave, Wake Forest, NC 27587</code>. It also includes social profile links (Facebook, Instagram, YouTube, LinkedIn) via <code>sameAs</code>. Good foundation for local signals.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9989;</div>
+      <div class="finding-content">
+        <div class="finding-title">Google Verification Tags Present <span class="tag tag-good">Good</span></div>
+        <div class="finding-detail">
+          Both Google Site Verification and Bing Webmaster verification tags are present, indicating the site is connected to both search console platforms.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 5: PERFORMANCE -->
+<div class="audit-section">
+  <div class="section-header">
+    <span class="section-icon">&#9889;</span>
+    <h2>Performance &amp; Page Speed</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="finding">
+      <div class="finding-icon">&#10060;</div>
+      <div class="finding-content">
+        <div class="finding-title">Massive Page Weight <span class="tag tag-critical">Critical</span></div>
+        <div class="finding-detail">
+          The raw HTML document alone is <strong>157KB</strong> before any CSS, JS, images, or fonts load. Combined with 22 CSS files and 39 JS files, the total page weight is likely well over 3MB. Google recommends keeping total page size under 1.5MB for optimal performance. This directly impacts Core Web Vitals scores.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">Too Many Third-Party Requests <span class="tag tag-warning">Warning</span></div>
+        <div class="finding-detail">
+          The page makes requests to <code>resources.agentimage.com</code>, <code>fonts.googleapis.com</code>, <code>cdn.jsdelivr.net</code>, <code>js.hs-scripts.com</code> (HubSpot), <code>www.googletagmanager.com</code>, <code>www.google.com/recaptcha</code>, <code>cdn.photos.sparkplatform.com</code> (MLS photos), and more. Each domain requires a DNS lookup and TLS handshake, adding latency.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9989;</div>
+      <div class="finding-content">
+        <div class="finding-title">Lazy Loading Implemented <span class="tag tag-good">Good</span></div>
+        <div class="finding-detail">
+          The site uses both native <code>loading="lazy"</code> and a JavaScript lazy loader (Perfmatters + LazySizes). Images below the fold are deferred. The hero image uses <code>loading="eager"</code> with preload hints, which is correct.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9989;</div>
+      <div class="finding-content">
+        <div class="finding-title">Cloudflare CDN Active <span class="tag tag-good">Good</span></div>
+        <div class="finding-detail">
+          The site is served through Cloudflare (confirmed by <code>cf-ray</code> headers), which provides edge caching, DDoS protection, and performance optimization.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9989;</div>
+      <div class="finding-content">
+        <div class="finding-title">Perfmatters Plugin Active <span class="tag tag-good">Good</span></div>
+        <div class="finding-detail">
+          The Perfmatters performance plugin is installed and delaying non-critical scripts. It's also handling YouTube lazy loading and CSS background lazy loading. This is a premium optimization plugin being put to work.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 6: ADDITIONAL FINDINGS -->
+<div class="audit-section">
+  <div class="section-header">
+    <span class="section-icon">&#128270;</span>
+    <h2>Additional Findings</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">Accessibility Plugin Present but Minimal <span class="tag tag-info">Info</span></div>
+        <div class="finding-detail">
+          The Pojo Accessibility plugin provides a toolbar for text resizing, link underlining, and readable font toggle. However, the site has 20+ images without alt text, and some interactive elements lack proper ARIA labels. The accessibility widget is a good start but doesn't fix underlying issues.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">HubSpot Tracking Installed <span class="tag tag-info">Info</span></div>
+        <div class="finding-detail">
+          HubSpot tracking (account #46869980) and page analytics are active. This means there's a CRM in place for lead tracking. However, combined with dual GA tags and GTM, the total tracking script overhead is significant.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">Template Comment: "[ai_client_twitter]" <span class="tag tag-warning">Warning</span></div>
+        <div class="finding-detail">
+          The HTML contains a commented-out Twitter link with a template variable: <code>[ai_client_twitter]</code>. This suggests the site was built from an Agent Image template and some fields were never completed. It's minor but looks unprofessional in the source code.
+        </div>
+      </div>
+    </div>
+
+    <div class="finding">
+      <div class="finding-icon">&#9888;&#65039;</div>
+      <div class="finding-content">
+        <div class="finding-title">Property Management on Separate Platform <span class="tag tag-warning">Warning</span></div>
+        <div class="finding-detail">
+          The PM site (<code>propertyspecificmanagement.com</code>) appears to run on a different platform (NestHub/custom). Its OG URL references <code>propspecific.com</code> while its canonical is <code>propertyspecificmanagement.com</code>. This creates a three-way domain split for SEO authority. The PM site still uses the old Universal Analytics (<code>UA-104453542-1</code>) which Google deprecated in July 2023.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SECTION 7: SITE OVERVIEW TABLE -->
+<div class="audit-section">
+  <div class="section-header">
+    <span class="section-icon">&#128203;</span>
+    <h2>Site Overview</h2>
+  </div>
+  <div class="section-body">
+    <table class="info-table">
+      <tr><td>Primary Domain</td><td>propertyspecificrealty.com (propspecific.com redirects here)</td></tr>
+      <tr><td>PM Domain</td><td>propertyspecificmanagement.com (separate site)</td></tr>
+      <tr><td>CMS</td><td>WordPress (Agent Image theme: webb-pending.com)</td></tr>
+      <tr><td>SEO Plugin</td><td>Yoast SEO v24.9</td></tr>
+      <tr><td>CDN</td><td>Cloudflare</td></tr>
+      <tr><td>Title Tag</td><td>Property Specific Realty | Full Service Real Estate Firm</td></tr>
+      <tr><td>Meta Description</td><td>Serving The Raleigh, Wake Forest and Surrounding Areas | We are known for offering a masterful market education call...</td></tr>
+      <tr><td>H1 Tag</td><td>Full Service Real Estate Firm Serving the Raleigh, Wake Forest and Surrounding Areas</td></tr>
+      <tr><td>Schema Types</td><td>CollectionPage, WebSite, BreadcrumbList, RealEstateAgent, BlogPosting, SiteNavigationElement</td></tr>
+      <tr><td>Sitemap</td><td>6 sub-sitemaps (posts, pages, agents, communities, categories, authors)</td></tr>
+      <tr><td>Analytics</td><td>GA4 (x2), GTM, HubSpot</td></tr>
+      <tr><td>IDX Provider</td><td>iHomefinder</td></tr>
+      <tr><td>Address in Schema</td><td>143 Wait Ave, Wake Forest, NC 27587</td></tr>
+      <tr><td>Phone (Displayed)</td><td>919.263.1291</td></tr>
+      <tr><td>Phone (Schema)</td><td>+1-919-0307-7767 (MISMATCH)</td></tr>
+      <tr><td>Email</td><td>hello@psrealtync.com</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- SECTION 8: PRIORITIZED ACTION PLAN -->
+<div class="audit-section">
+  <div class="section-header">
+    <span class="section-icon">&#127919;</span>
+    <h2>Prioritized Action Plan</h2>
+  </div>
+  <div class="section-body">
+
+    <div class="action-item">
+      <div class="action-num">1</div>
+      <div class="action-content">
+        <div class="action-title">Fix Phone Number in Schema Markup <span class="impact-high">&#9650; HIGH IMPACT</span></div>
+        <div class="action-desc">Update the RealEstateAgent structured data phone number from <code>+1-919-0307-7767</code> to match the actual displayed number <code>919.263.1291</code>. NAP consistency is foundational for local SEO. This is a 5-minute fix with immediate impact.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">2</div>
+      <div class="action-content">
+        <div class="action-title">Remove the Null Schema Tag <span class="impact-high">&#9650; HIGH IMPACT</span></div>
+        <div class="action-desc">Delete the <code>&lt;script type="application/ld+json"&gt;null&lt;/script&gt;</code> line from the homepage template. This is generating structured data errors in Search Console and can hurt crawling.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">3</div>
+      <div class="action-content">
+        <div class="action-title">Consolidate Domain Strategy <span class="impact-high">&#9650; HIGH IMPACT</span></div>
+        <div class="action-desc">Decide on a single domain for all SEO authority. Options: (A) Make <code>propertyspecificrealty.com</code> the primary and add a /property-management/ section for PM content, or (B) build <code>propspecific.com</code> as the primary brand. Either way, stop splitting authority across 3 domains.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">4</div>
+      <div class="action-content">
+        <div class="action-title">Add Proper Heading Structure <span class="impact-high">&#9650; HIGH IMPACT</span></div>
+        <div class="action-desc">Convert section titles (Featured Properties, About, Areas, etc.) from <code>&lt;span&gt;</code> tags to proper <code>&lt;h2&gt;</code> tags. Add <code>&lt;h3&gt;</code> tags for sub-sections. This gives Google a clear page outline and boosts topical relevance.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">5</div>
+      <div class="action-content">
+        <div class="action-title">Rewrite Title Tag and Meta Description <span class="impact-high">&#9650; HIGH IMPACT</span></div>
+        <div class="action-desc">New title suggestion: <code>Property Specific | Property Management &amp; Real Estate in Wake Forest, NC</code>. New meta: Include services (property management, buying, selling), location (Wake Forest, Raleigh, NC), and a call to action.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">6</div>
+      <div class="action-content">
+        <div class="action-title">Add Homepage Content (300+ Words) <span class="impact-med">&#9650; MEDIUM IMPACT</span></div>
+        <div class="action-desc">Write unique, keyword-rich content for the homepage that describes property management services, areas served, and why clients choose Property Specific. The current 60 words isn't enough for Google to understand the page.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">7</div>
+      <div class="action-content">
+        <div class="action-title">Remove Duplicate Google Analytics Tags <span class="impact-med">&#9650; MEDIUM IMPACT</span></div>
+        <div class="action-desc">Keep one GA4 property and manage it through GTM. Remove the duplicate <code>gtag.js</code> installation. This reduces page load and fixes data accuracy issues.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">8</div>
+      <div class="action-content">
+        <div class="action-title">Fix Logo Alt Text and Copyright <span class="impact-med">&#9650; MEDIUM IMPACT</span></div>
+        <div class="action-desc">Change all logo <code>alt</code> attributes from "Lori Webb" to "Property Specific Realty" or "Property Specific Management." Update the footer copyright to reflect the current business ownership.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">9</div>
+      <div class="action-content">
+        <div class="action-title">Add Missing Image Alt Text <span class="impact-med">&#9650; MEDIUM IMPACT</span></div>
+        <div class="action-desc">Add descriptive alt text to the 20 images currently missing it. Use descriptive, keyword-relevant text (not keyword stuffing). Prioritize images in the main content area.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">10</div>
+      <div class="action-content">
+        <div class="action-title">Add Property Management Schema <span class="impact-med">&#9650; MEDIUM IMPACT</span></div>
+        <div class="action-desc">Add a <code>LocalBusiness</code> schema with <code>additionalType</code> for property management. Include services offered, service area, hours, and ensure NAP matches Google Business Profile exactly.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">11</div>
+      <div class="action-content">
+        <div class="action-title">Optimize Page Speed <span class="impact-low">&#9650; LOWER IMPACT</span></div>
+        <div class="action-desc">Reduce CSS/JS file count by combining files, defer remaining render-blocking scripts, and optimize image delivery. The Agent Image theme loads a lot of resources. Consider whether all 22 CSS and 39 JS files are truly needed.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-num">12</div>
+      <div class="action-content">
+        <div class="action-title">Upgrade PM Site Analytics <span class="impact-low">&#9650; LOWER IMPACT</span></div>
+        <div class="action-desc">The property management site still uses Universal Analytics (deprecated July 2023). Migrate to GA4 before all historical data is lost. Connect both sites' analytics for a unified view of the business.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<!-- FOOTER -->
+<div class="report-footer">
+  <div class="footer-logo">DoorGrow</div>
+  <div class="footer-tagline">We help property management companies grow.</div>
+  <p style="font-size:14px; margin-bottom: 6px;">This SEO audit was prepared by DoorGrow to help identify opportunities for online growth.</p>
+  <p style="font-size:13px; opacity:0.7; margin-bottom:20px;">All findings are based on observable page content, source code analysis, and publicly available data. No metrics have been fabricated or estimated.</p>
+  <a href="https://doorgrow.com" class="footer-cta" target="_blank">Learn How DoorGrow Can Help &rarr;</a>
+  <p style="font-size:12px; opacity:0.5; margin-top: 20px;">&copy; 2026 DoorGrow. All rights reserved. | <a href="https://doorgrow.com" style="color: rgba(255,255,255,0.6);">doorgrow.com</a></p>
+</div>
+
+</body>
+</html>

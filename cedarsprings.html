@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO Audit Report - Cedar Springs Realty | DoorGrow</title>
+<style>
+  :root {
+    --navy: #021f42;
+    --navy-light: #0a2d5c;
+    --green: #4bd137;
+    --green-light: #e8f9e5;
+    --red: #e74c3c;
+    --red-light: #fdecea;
+    --yellow: #f39c12;
+    --yellow-light: #fef9e7;
+    --gray-50: #f8f9fa;
+    --gray-100: #f1f3f5;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-500: #6c757d;
+    --gray-700: #495057;
+    --gray-900: #212529;
+    --shadow: 0 2px 8px rgba(2,31,66,0.08);
+    --shadow-lg: 0 4px 24px rgba(2,31,66,0.12);
+    --radius: 12px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--gray-50);
+    color: var(--gray-900);
+    line-height: 1.6;
+  }
+  .header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: #fff;
+    padding: 48px 24px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--green), var(--green) 33%, var(--yellow) 33%, var(--yellow) 66%, var(--red) 66%);
+  }
+  .header-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 24px;
+    padding: 6px 20px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  .header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .header .subtitle {
+    font-size: 17px;
+    opacity: 0.85;
+    font-weight: 400;
+  }
+  .header .url {
+    font-size: 14px;
+    opacity: 0.6;
+    margin-top: 8px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+  }
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Score Hero */
+  .score-hero {
+    display: flex;
+    gap: 24px;
+    margin: -36px auto 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .score-card {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    padding: 28px 32px;
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    max-width: 280px;
+  }
+  .score-circle {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 800;
+    margin: 0 auto 12px;
+    color: #fff;
+    position: relative;
+  }
+  .score-circle.grade-d { background: linear-gradient(135deg, var(--red), #c0392b); }
+  .score-circle.grade-c { background: linear-gradient(135deg, var(--yellow), #e67e22); }
+  .score-circle.grade-b { background: linear-gradient(135deg, #3498db, #2980b9); }
+  .score-circle.grade-a { background: linear-gradient(135deg, var(--green), #27ae60); }
+  .score-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .score-value {
+    font-size: 15px;
+    color: var(--gray-700);
+    margin-top: 4px;
+  }
+
+  /* Sections */
+  .section {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .section-header {
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .section-icon.tech { background: #eef2ff; }
+  .section-icon.onpage { background: #fef3c7; }
+  .section-icon.content { background: #e8f9e5; }
+  .section-icon.local { background: #fce7f3; }
+  .section-icon.action { background: #fdecea; }
+  .section-icon.exec { background: linear-gradient(135deg, var(--navy), var(--navy-light)); color: #fff; }
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .section-body { padding: 24px 28px; }
+
+  /* Audit Items */
+  .audit-item {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--gray-100);
+    align-items: flex-start;
+  }
+  .audit-item:last-child { border-bottom: none; }
+  .status-badge {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+  .status-pass { background: var(--green-light); color: #27ae60; }
+  .status-warn { background: var(--yellow-light); color: #e67e22; }
+  .status-fail { background: var(--red-light); color: var(--red); }
+  .audit-content { flex: 1; }
+  .audit-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--gray-900);
+    margin-bottom: 4px;
+  }
+  .audit-desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    line-height: 1.5;
+  }
+  .audit-detail {
+    background: var(--gray-50);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    font-size: 13px;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    color: var(--gray-700);
+    word-break: break-all;
+    border: 1px solid var(--gray-200);
+  }
+
+  /* Summary Stats */
+  .stats-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .stat-box {
+    flex: 1;
+    min-width: 140px;
+    background: var(--gray-50);
+    border-radius: 10px;
+    padding: 16px 20px;
+    text-align: center;
+    border: 1px solid var(--gray-200);
+  }
+  .stat-number {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+  }
+
+  /* Action Plan */
+  .action-item {
+    display: flex;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--gray-100);
+    align-items: flex-start;
+  }
+  .action-item:last-child { border-bottom: none; }
+  .action-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .action-content { flex: 1; }
+  .action-title {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 4px;
+  }
+  .action-desc {
+    font-size: 14px;
+    color: var(--gray-500);
+    line-height: 1.5;
+  }
+  .impact-tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .impact-high { background: var(--red-light); color: var(--red); }
+  .impact-med { background: var(--yellow-light); color: #e67e22; }
+  .impact-low { background: var(--green-light); color: #27ae60; }
+
+  /* Executive Summary Prose */
+  .exec-prose {
+    font-size: 15px;
+    color: var(--gray-700);
+    line-height: 1.7;
+  }
+  .exec-prose p { margin-bottom: 14px; }
+  .exec-prose strong { color: var(--navy); }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    color: var(--gray-500);
+    font-size: 14px;
+  }
+  .footer a {
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .footer a:hover { text-decoration: underline; }
+  .footer-brand {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .footer-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--green);
+    margin: 16px auto;
+    border-radius: 2px;
+  }
+
+  /* Typo callout */
+  .typo-highlight {
+    background: var(--red-light);
+    color: var(--red);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-weight: 600;
+    text-decoration: line-through;
+  }
+  .typo-fix {
+    background: var(--green-light);
+    color: #27ae60;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .header { padding: 32px 16px 40px; }
+    .header h1 { font-size: 24px; }
+    .score-hero { gap: 12px; }
+    .score-card { padding: 20px 16px; min-width: 140px; }
+    .section-body { padding: 16px 20px; }
+    .section-header { padding: 16px 20px; }
+    .stats-row { gap: 8px; }
+    .stat-box { min-width: 100px; padding: 12px; }
+    .stat-number { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-badge">SEO Audit Report</div>
+  <h1>Cedar Springs Realty</h1>
+  <div class="subtitle">Full-Service Real Estate &amp; Property Management</div>
+  <div class="url">cedarspringsrealty.com &middot; March 27, 2026</div>
+</div>
+
+<!-- OVERALL SCORES -->
+<div class="container">
+<div class="score-hero">
+  <div class="score-card">
+    <div class="score-circle grade-d">D+</div>
+    <div class="score-label">Overall SEO</div>
+    <div class="score-value">Significant gaps found</div>
+  </div>
+  <div class="score-card">
+    <div class="score-circle grade-c">C</div>
+    <div class="score-label">Technical</div>
+    <div class="score-value">Basics in place, gaps remain</div>
+  </div>
+  <div class="score-card">
+    <div class="score-circle grade-d">D</div>
+    <div class="score-label">On-Page</div>
+    <div class="score-value">Heading &amp; content issues</div>
+  </div>
+  <div class="score-card">
+    <div class="score-circle grade-d">D</div>
+    <div class="score-label">Local SEO</div>
+    <div class="score-value">Minimal local signals</div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- EXECUTIVE SUMMARY -->
+<!-- ============================================ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon exec">&#9733;</div>
+    <div class="section-title">Executive Summary</div>
+  </div>
+  <div class="section-body">
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-number" style="color:var(--red);">8</div>
+        <div class="stat-label">Critical Issues</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" style="color:var(--yellow);">6</div>
+        <div class="stat-label">Warnings</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number" style="color:var(--green);">7</div>
+        <div class="stat-label">Passing</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">15</div>
+        <div class="stat-label">Pages in Sitemap</div>
+      </div>
+    </div>
+    <div class="exec-prose">
+      <p><strong>Cedar Springs Realty's website has foundational SEO problems that are likely costing it visibility in local search results.</strong> While the site runs on HTTPS and has a valid sitemap, it's missing critical elements that Google uses to understand, rank, and display the business in search results.</p>
+      <p>The biggest issues: <strong>no blog or content strategy</strong> (just 15 pages total, many of them individual listing pages), <strong>almost no structured data</strong> (only a basic WebSite schema, missing LocalBusiness, RealEstateAgent, and FAQ markup), <strong>duplicate H1 tags</strong>, <strong>very thin internal linking</strong>, and <strong>no evidence of local SEO optimization</strong> beyond the meta description mentioning Raleigh and Durham.</p>
+      <p>There are also quality issues like <strong>misspelled URLs</strong> ("/maintenence" and "/owener-faqs"), empty alt text on images, and no lazy loading for images. The site appears built on a website builder platform (DudaMobile/Duda) rather than a CMS that gives full SEO control.</p>
+      <p>The good news: the meta description is well-written, HTTPS is properly configured with HSTS, the site loads relatively quickly, and the Open Graph tags are set up correctly for social sharing. These are solid foundations to build on.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 1: TECHNICAL SEO -->
+<!-- ============================================ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon tech">&#9881;</div>
+    <div class="section-title">Technical SEO</div>
+  </div>
+  <div class="section-body">
+
+    <div class="audit-item">
+      <div class="status-badge status-pass">&#10003;</div>
+      <div class="audit-content">
+        <div class="audit-title">HTTPS &amp; Security Headers</div>
+        <div class="audit-desc">Site serves over HTTPS with HTTP/2. Strict-Transport-Security header is set with max-age=31536000 and preload. X-Content-Type-Options: nosniff and X-Frame-Options: SAMEORIGIN are also present. Solid security configuration.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-pass">&#10003;</div>
+      <div class="audit-content">
+        <div class="audit-title">robots.txt</div>
+        <div class="audit-desc">robots.txt is present and correctly references the sitemap. No pages are blocked from crawling. All user agents are allowed.</div>
+        <div class="audit-detail">User-agent: *<br>Sitemap: https://www.cedarspringsrealty.com/sitemap.xml</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-warn">&#9888;</div>
+      <div class="audit-content">
+        <div class="audit-title">XML Sitemap Issues</div>
+        <div class="audit-desc">Sitemap exists with 42 URLs, but has problems: (1) All pages have priority set to 1.0, which defeats the purpose of priority signals. Google essentially ignores identical priority values. (2) All lastmod dates are the same (Feb 18, 2026) except the homepage and one other page, suggesting they aren't being dynamically updated. (3) No image sitemap entries for property photos.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-pass">&#10003;</div>
+      <div class="audit-content">
+        <div class="audit-title">Canonical Tag</div>
+        <div class="audit-desc">Self-referencing canonical tag is properly set on the homepage.</div>
+        <div class="audit-detail">&lt;link rel="canonical" href="https://www.cedarspringsrealty.com/"&gt;</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-pass">&#10003;</div>
+      <div class="audit-content">
+        <div class="audit-title">Gzip Compression</div>
+        <div class="audit-desc">Compression is enabled. The homepage compresses from 181 KB to 38 KB (79% reduction). Good performance.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-pass">&#10003;</div>
+      <div class="audit-content">
+        <div class="audit-title">Page Load Time (Server Response)</div>
+        <div class="audit-desc">Server response time (TTFB) is fast at ~168ms. The server is responsive, though full page load with rendering may vary for end users.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-fail">&#10007;</div>
+      <div class="audit-content">
+        <div class="audit-title">No Lazy Loading on Images</div>
+        <div class="audit-desc">None of the 13 images on the homepage use <code>loading="lazy"</code>. This means all images load immediately regardless of whether they're visible, slowing initial page render for visitors, especially on mobile.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-fail">&#10007;</div>
+      <div class="audit-content">
+        <div class="audit-title">Misspelled URLs in Sitemap</div>
+        <div class="audit-desc">Two URLs in the sitemap contain spelling errors. These create a poor impression for users who see them in the browser bar and can cause confusion if the correct spellings are ever created as separate pages.</div>
+        <div class="audit-detail">/mainten<span class="typo-highlight">ence</span> &rarr; should be /mainten<span class="typo-fix">ance</span><br>/ow<span class="typo-highlight">ener</span>-faqs &rarr; should be /ow<span class="typo-fix">ner</span>-faqs</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-warn">&#9888;</div>
+      <div class="audit-content">
+        <div class="audit-title">Cache Control Set to No-Cache</div>
+        <div class="audit-desc">The homepage returns <code>Cache-Control: no-cache, must-revalidate</code> with an expired date. This forces browsers to re-download the page on every visit instead of caching it. Static assets should allow browser caching to improve repeat visit performance.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-pass">&#10003;</div>
+      <div class="audit-content">
+        <div class="audit-title">Mobile Viewport</div>
+        <div class="audit-desc">Viewport meta tag is properly configured with initial-scale=1 and viewport-fit=cover. Max-scale is set to 5, which allows users to zoom (good for accessibility).</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 2: ON-PAGE SEO -->
+<!-- ============================================ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon onpage">&#128196;</div>
+    <div class="section-title">On-Page SEO</div>
+  </div>
+  <div class="section-body">
+
+    <div class="audit-item">
+      <div class="status-badge status-warn">&#9888;</div>
+      <div class="audit-content">
+        <div class="audit-title">Title Tag</div>
+        <div class="audit-desc">The title tag exists and includes the brand name, but it's generic and doesn't target any local keywords that potential clients would search for.</div>
+        <div class="audit-detail">Cedar Springs Realty | Real Estate &amp; Management</div>
+        <div class="audit-desc" style="margin-top:8px;">
+          <strong>Recommendation:</strong> "Property Management in Raleigh &amp; Wake Forest NC | Cedar Springs Realty" would target actual search queries while keeping the brand name.
+        </div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-pass">&#10003;</div>
+      <div class="audit-content">
+        <div class="audit-title">Meta Description</div>
+        <div class="audit-desc">Well-written meta description at 156 characters. Includes location keywords (Raleigh, Durham, Triangle), service keywords (real estate, property management), and a differentiator (Veteran-owned). Good job here.</div>
+        <div class="audit-detail">Full-service real estate sales and property management in Raleigh, Durham, and the Triangle. Veteran-owned, mission-driven, and dedicated to your best interests.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-fail">&#10007;</div>
+      <div class="audit-content">
+        <div class="audit-title">Duplicate H1 Tags</div>
+        <div class="audit-desc">The homepage has <strong>two H1 tags</strong>, and both just say "CEDAR SPRINGS REALTY." Multiple H1 tags dilute heading hierarchy, and using just the company name wastes the most important on-page ranking signal. The H1 should describe what the business does and where, not just repeat the brand name.</div>
+        <div class="audit-detail">H1 #1: CEDAR SPRINGS REALTY (desktop version)<br>H1 #2: CEDAR SPRINGS REALTY (mobile version)</div>
+        <div class="audit-desc" style="margin-top:8px;">
+          <strong>Recommendation:</strong> Use a single H1 like "Property Management &amp; Real Estate in the Triangle, NC" and use CSS to handle responsive display instead of duplicate elements.
+        </div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-warn">&#9888;</div>
+      <div class="audit-content">
+        <div class="audit-title">Heading Hierarchy</div>
+        <div class="audit-desc">The heading structure skips levels and uses generic text. H2s are "Welcome Home," "Newest Listings," "Testimonials," and "Contact Us." None of these contain keywords that searchers would use. The H3 tags include "Tenants" and "Owners" which are vague. H4 tags appear below but the hierarchy isn't clean.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-fail">&#10007;</div>
+      <div class="audit-content">
+        <div class="audit-title">Thin Internal Linking</div>
+        <div class="audit-desc">The homepage body content contains almost <strong>no text-based internal links</strong>. The only internal link found in the page content is to the homepage itself and the navigation menu. Good SEO practice calls for contextual links within body copy pointing to service pages, listing pages, and informational content. Navigation links alone aren't enough.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-warn">&#9888;</div>
+      <div class="audit-content">
+        <div class="audit-title">Image Alt Text</div>
+        <div class="audit-desc">13 images on the homepage. 11 have alt text, but 2 have empty alt attributes, and several alt texts are generic rather than descriptive. "A blank, white square" appears twice (spacer images). "Quote 1," "Quote 2," and "Quote 3" for testimonial images miss an opportunity to include the reviewer's name.</div>
+        <div class="audit-detail">&#10003; "Cedar Property Management Logo"<br>&#10003; "Mother and Child Playing"<br>&#10003; "Apartment Buildings with Pool"<br>&#9888; "A blank, white square." (x2)<br>&#9888; "Quote 1", "Quote 2", "Quote 3"<br>&#10007; Empty alt="" (x2)</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-fail">&#10007;</div>
+      <div class="audit-content">
+        <div class="audit-title">Minimal On-Page Content</div>
+        <div class="audit-desc">The homepage has very little readable text content. The main body paragraph is a single block about the company. There's no service-focused content, no area-specific content, no FAQ section, and no calls-to-action beyond "About Us" and "Contact." Google needs text content to understand what the page is about and rank it for relevant searches.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-fail">&#10007;</div>
+      <div class="audit-content">
+        <div class="audit-title">No Blog or Content Hub</div>
+        <div class="audit-desc">The sitemap shows only 15 unique pages (excluding listing detail pages). There's no blog, no resource center, no area guides, and no educational content. For a local property management company, content like "Guide to Renting in Wake Forest," "Property Owner Tax Tips in NC," or neighborhood guides would attract organic search traffic and establish authority.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-warn">&#9888;</div>
+      <div class="audit-content">
+        <div class="audit-title">Open Graph Tags</div>
+        <div class="audit-desc">OG tags are present and correctly configured (og:title, og:description, og:image, og:url, og:type). The OG image points to the company logo. A custom social sharing image with branding and a tagline would perform better when shared on social media.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 3: CONTENT QUALITY -->
+<!-- ============================================ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon content">&#128214;</div>
+    <div class="section-title">Content Quality &amp; E-E-A-T</div>
+  </div>
+  <div class="section-body">
+
+    <div class="audit-item">
+      <div class="status-badge status-fail">&#10007;</div>
+      <div class="audit-content">
+        <div class="audit-title">Experience &amp; Expertise Signals</div>
+        <div class="audit-desc">The homepage mentions being "Veteran-owned" in the meta description but doesn't highlight this on the page itself. There's no team bios, no credentials, no years of experience callout, and no specific market expertise demonstrated. Google's E-E-A-T guidelines reward content that shows real experience and expertise. The About Us page likely has some of this, but the homepage should showcase it too.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-warn">&#9888;</div>
+      <div class="audit-content">
+        <div class="audit-title">Testimonials Section</div>
+        <div class="audit-desc">The homepage includes a testimonials section with at least 3 quotes, which is a trust signal. The content includes a genuine 5-star review mentioning specifics about Youngsville and PM experience. This is good, but could be strengthened with schema markup (Review schema), full names, and photos.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-fail">&#10007;</div>
+      <div class="audit-content">
+        <div class="audit-title">Search Intent Mismatch</div>
+        <div class="audit-desc">Someone searching "property management Raleigh NC" wants to quickly understand services offered, pricing, coverage area, and why to choose this company. The homepage doesn't clearly answer these questions above the fold. The main content paragraph is corporate-sounding and doesn't speak directly to pain points property owners or tenants have.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-fail">&#10007;</div>
+      <div class="audit-content">
+        <div class="audit-title">Content Depth</div>
+        <div class="audit-desc">With only ~150 words of body content on the homepage, Google has very little to index. Competing property management companies in Raleigh/Durham likely have 500-1000+ words on their homepages covering services, areas served, and value propositions. The current thin content makes it very difficult to rank for any competitive terms.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-pass">&#10003;</div>
+      <div class="audit-content">
+        <div class="audit-title">Spelling Note in Main Content</div>
+        <div class="audit-desc">The banner text reads "Serving the Wake Forest, <span class="typo-highlight">Raliegh</span>, Durham, Chapel Hill" with "Raleigh" misspelled as "Raliegh." This is a small but noticeable credibility issue, especially for a local company whose prospects are in Raleigh. Note: the meta description spells it correctly.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 4: LOCAL SEO -->
+<!-- ============================================ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon local">&#128205;</div>
+    <div class="section-title">Local SEO</div>
+  </div>
+  <div class="section-body">
+
+    <div class="audit-item">
+      <div class="status-badge status-fail">&#10007;</div>
+      <div class="audit-content">
+        <div class="audit-title">LocalBusiness Schema Missing</div>
+        <div class="audit-desc">The only structured data on the site is a basic WebSite schema with the name and URL. There's <strong>no LocalBusiness, RealEstateAgent, or Organization schema</strong>. This means Google can't easily extract the business name, address, phone number, hours, service area, or reviews from the page. This is one of the highest-impact fixes available.</div>
+        <div class="audit-detail">Current schema:<br>{<br>&nbsp;&nbsp;"@context": "https://schema.org",<br>&nbsp;&nbsp;"@type": "WebSite",<br>&nbsp;&nbsp;"name": "Cedar Springs Realty",<br>&nbsp;&nbsp;"url": "https://www.cedarspringsrealty.com/"<br>}</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-warn">&#9888;</div>
+      <div class="audit-content">
+        <div class="audit-title">NAP Consistency (Name, Address, Phone)</div>
+        <div class="audit-desc">Business information is present in the footer but not in a structured, crawlable format. The address (3650 Rogers Road #284, Wake Forest NC 27587), phone ((919) 998 8613), and email (carl@cedarspringsrealty.com) are visible but embedded in paragraph text rather than in structured address markup. No phone number uses a tel: link for click-to-call on mobile.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-fail">&#10007;</div>
+      <div class="audit-content">
+        <div class="audit-title">No Service Area Pages</div>
+        <div class="audit-desc">The site mentions serving Wake Forest, Raleigh, Durham, and Chapel Hill, but there are <strong>no dedicated pages for each city or area</strong>. Location-specific pages (e.g., "Property Management in Raleigh NC") are one of the most effective ways to rank in local search. Each service area should have its own page with unique content about that market.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-fail">&#10007;</div>
+      <div class="audit-content">
+        <div class="audit-title">No Google Business Profile Link</div>
+        <div class="audit-desc">There's no link to a Google Business Profile from the website, and no embedded Google Map. A GBP link and embedded map help Google verify the business location and can improve local pack rankings. If a GBP exists, it should be linked. If one doesn't exist, creating one should be a top priority.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-fail">&#10007;</div>
+      <div class="audit-content">
+        <div class="audit-title">No FAQ Schema on FAQ Pages</div>
+        <div class="audit-desc">The site has three FAQ pages (applicant-faqs, owner-faqs, resident-faqs) but the homepage doesn't include FAQ schema and there's no evidence of FAQPage structured data. FAQ schema can generate rich results in Google showing questions and answers directly in search, increasing click-through rates significantly.</div>
+      </div>
+    </div>
+
+    <div class="audit-item">
+      <div class="status-badge status-fail">&#10007;</div>
+      <div class="audit-content">
+        <div class="audit-title">No Social Media Links</div>
+        <div class="audit-desc">No links to Facebook, Instagram, LinkedIn, or any social media profiles were found on the homepage. Social profiles help establish brand identity, provide additional ranking signals, and allow Google to associate the business entity across platforms.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION 5: PRIORITIZED ACTION PLAN -->
+<!-- ============================================ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon action">&#127919;</div>
+    <div class="section-title">Prioritized Action Plan</div>
+  </div>
+  <div class="section-body">
+
+    <div class="action-item">
+      <div class="action-number">1</div>
+      <div class="action-content">
+        <div class="action-title">Add LocalBusiness / RealEstateAgent Schema <span class="impact-tag impact-high">High Impact</span></div>
+        <div class="action-desc">Implement comprehensive JSON-LD structured data including business name, address, phone, service areas, hours, and aggregate rating. This directly improves how Google understands and displays the business in search results and map packs.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">2</div>
+      <div class="action-content">
+        <div class="action-title">Create City/Service Area Landing Pages <span class="impact-tag impact-high">High Impact</span></div>
+        <div class="action-desc">Build dedicated pages for each service area: Raleigh, Durham, Wake Forest, Chapel Hill, and Youngsville. Each page should include unique content about property management in that specific market, local market insights, and service details. This is the single biggest lever for ranking in local searches.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">3</div>
+      <div class="action-content">
+        <div class="action-title">Fix the H1 Tag and Heading Hierarchy <span class="impact-tag impact-high">High Impact</span></div>
+        <div class="action-desc">Replace the duplicate "CEDAR SPRINGS REALTY" H1s with a single, keyword-rich H1 like "Property Management &amp; Real Estate Services in the Triangle, NC." Update H2s to include service-focused language. Use CSS for responsive styling instead of duplicate heading elements.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">4</div>
+      <div class="action-content">
+        <div class="action-title">Optimize the Title Tag <span class="impact-tag impact-high">High Impact</span></div>
+        <div class="action-desc">Change from "Cedar Springs Realty | Real Estate &amp; Management" to something targeting actual search queries: "Property Management in Raleigh &amp; Wake Forest NC | Cedar Springs Realty." The title tag is the most visible ranking element in search results.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">5</div>
+      <div class="action-content">
+        <div class="action-title">Add Substantial Homepage Content <span class="impact-tag impact-high">High Impact</span></div>
+        <div class="action-desc">Expand the homepage from ~150 words to 500-800 words. Include sections covering: services offered, areas served, why choose Cedar Springs (veteran-owned, since 2015), property types managed, and a clear call-to-action. This gives Google content to index and rank.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">6</div>
+      <div class="action-content">
+        <div class="action-title">Launch a Blog / Resource Center <span class="impact-tag impact-med">Medium Impact</span></div>
+        <div class="action-desc">Start publishing 2-4 articles per month targeting questions property owners and tenants in the Triangle ask: rental market updates, tenant screening tips, NC landlord-tenant law guides, maintenance checklists, neighborhood spotlights. This builds topical authority and drives organic traffic over time.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">7</div>
+      <div class="action-content">
+        <div class="action-title">Fix Misspelled URLs and Content <span class="impact-tag impact-med">Medium Impact</span></div>
+        <div class="action-desc">Correct "/maintenence" to "/maintenance" and "/owener-faqs" to "/owner-faqs" with proper 301 redirects. Fix "Raliegh" to "Raleigh" in the banner text. Small credibility issues like these erode trust with visitors.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">8</div>
+      <div class="action-content">
+        <div class="action-title">Add FAQ Schema to FAQ Pages <span class="impact-tag impact-med">Medium Impact</span></div>
+        <div class="action-desc">Implement FAQPage structured data on the three existing FAQ pages (applicant, owner, resident). This can generate rich results in Google that show expandable Q&amp;A directly in search results, dramatically increasing visibility and click-through rate.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">9</div>
+      <div class="action-content">
+        <div class="action-title">Improve Internal Linking <span class="impact-tag impact-med">Medium Impact</span></div>
+        <div class="action-desc">Add contextual text links throughout the homepage and other pages that connect to service pages, FAQ pages, and (future) blog content. Internal links help Google discover and understand page relationships, and distribute ranking authority across the site.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">10</div>
+      <div class="action-content">
+        <div class="action-title">Add Lazy Loading &amp; Optimize Images <span class="impact-tag impact-low">Low Impact</span></div>
+        <div class="action-desc">Add loading="lazy" to below-the-fold images. Fix empty alt attributes with descriptive text. Replace generic alt text ("Quote 1") with meaningful descriptions. Ensure all property listing images have descriptive alt text for accessibility and image search visibility.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">11</div>
+      <div class="action-content">
+        <div class="action-title">Add Google Map Embed &amp; Social Links <span class="impact-tag impact-low">Low Impact</span></div>
+        <div class="action-desc">Embed a Google Map on the contact page and footer. Add links to social media profiles (Facebook, Instagram, LinkedIn). Create and link a Google Business Profile if one doesn't exist. These signals help Google verify the business and improve local visibility.</div>
+      </div>
+    </div>
+
+    <div class="action-item">
+      <div class="action-number">12</div>
+      <div class="action-content">
+        <div class="action-title">Implement Click-to-Call Phone Links <span class="impact-tag impact-low">Low Impact</span></div>
+        <div class="action-desc">Wrap the phone number (919) 998 8613 in a tel: link everywhere it appears. Currently it's only plain text. On mobile, this turns the phone number into a tappable call button, which improves user experience and conversion.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">DoorGrow</div>
+  <div class="footer-divider"></div>
+  <p>This SEO audit was prepared for Cedar Springs Realty<br>by <a href="https://www.doorgrow.com" target="_blank">DoorGrow</a> on March 27, 2026.</p>
+  <p style="margin-top:12px; font-size:12px; color:var(--gray-500);">All findings are based on directly observable page content and source code analysis.<br>No metrics have been estimated or fabricated. Actual traffic and ranking data require Google Search Console access.</p>
+</div>
+
+</div>
+</body>
+</html>
