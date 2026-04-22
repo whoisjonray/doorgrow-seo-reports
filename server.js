@@ -64,8 +64,8 @@ const INDEX_HTML = `<!DOCTYPE html>
     <p>The original three-tier offer page with technical deliverable bullets. Lives at /seo and /seo-tiers.</p>
   </div>
   <div class="card">
-    <h2><a href="/seo-plain">Search Dominance Pricing (plain-English version) &rarr;</a></h2>
-    <p>ELI5 rewrite with PM-tailored Domain Authority checker baked in. Lives at /seo-plain and /seo-simple.</p>
+    <h2><a href="/seo-plain">Search Dominance Pricing (simplified version) &rarr;</a></h2>
+    <p>Conversational rewrite with PM-tailored Domain Authority checker baked in. Lives at /seo-plain and /seo-simple.</p>
   </div>
 
   <div class="section-label">Client Audit Reports</div>
