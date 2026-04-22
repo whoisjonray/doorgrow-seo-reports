@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DoorGrow Search Dominance | SEO/AEO for Property Managers</title>
+<meta name="description" content="Done-for-you SEO and AI search optimization built exclusively for property management companies. Three tiers starting at $697/month. No setup fee. Month-to-month.">
+<meta property="og:title" content="DoorGrow Search Dominance - SEO/AEO for Property Managers">
+<meta property="og:description" content="Dominate Page One in your market. On Google AND in AI Answers. Three tiers. Month-to-month. Built exclusively for property management companies.">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --navy: #021f42;
+    --navy-dark: #011329;
+    --navy-light: #0a2d5c;
+    --green: #4bd137;
+    --green-dark: #27ae60;
+    --green-light: #e8f9e5;
+    --red: #e74c3c;
+    --red-dark: #c0392b;
+    --red-light: #fdecea;
+    --yellow: #f39c12;
+    --yellow-light: #fef9e7;
+    --blue: #3498db;
+    --gray-50: #f8f9fa;
+    --gray-100: #f1f3f5;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-500: #6c757d;
+    --gray-700: #495057;
+    --gray-900: #212529;
+    --shadow: 0 2px 8px rgba(2, 31, 66, 0.08);
+    --shadow-lg: 0 4px 24px rgba(2, 31, 66, 0.12);
+    --shadow-xl: 0 12px 40px rgba(2, 31, 66, 0.18);
+    --radius: 12px;
+    --radius-lg: 16px;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', Menlo, monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    background: var(--gray-50);
+    color: var(--gray-900);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--navy); }
+  img { max-width: 100%; display: block; }
+
+  /* === Signature stripe === */
+  .stripe {
+    height: 6px;
+    background: linear-gradient(90deg,
+      var(--green) 0%, var(--green) 33%,
+      var(--yellow) 33%, var(--yellow) 66%,
+      var(--red) 66%, var(--red) 100%);
+  }
+
+  /* === Top nav === */
+  .topnav {
+    background: #fff;
+    border-bottom: 1px solid var(--gray-200);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+  .topnav-brand {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.25px;
+    text-decoration: none;
+  }
+  .topnav-brand span { color: var(--green); }
+  .topnav-links { display: flex; gap: 24px; align-items: center; }
+  .topnav-links a {
+    color: var(--gray-700);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.15s;
+  }
+  .topnav-links a:hover { color: var(--navy); }
+  .topnav-cta {
+    background: var(--green);
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .topnav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(75, 209, 55, 0.3);
+  }
+  @media (max-width: 700px) {
+    .topnav-links a:not(.topnav-cta) { display: none; }
+  }
+
+  /* === Hero === */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    color: #fff;
+    padding: 72px 24px 88px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 10%, rgba(75, 209, 55, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 85% 85%, rgba(52, 152, 219, 0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 8px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow .dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 10px var(--green);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+  .hero h1 {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+  }
+  .hero h1 .highlight {
+    color: var(--green);
+    position: relative;
+  }
+  .hero-subtitle {
+    font-size: 20px;
+    line-height: 1.5;
+    opacity: 0.85;
+    max-width: 700px;
+    margin: 0 auto 36px;
+    font-weight: 400;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .cta-primary {
+    background: var(--green);
+    color: #fff !important;
+    padding: 18px 32px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 17px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 16px rgba(75, 209, 55, 0.3);
+  }
+  .cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(75, 209, 55, 0.45);
+  }
+  .cta-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff !important;
+    padding: 18px 28px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 17px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: background 0.15s;
+  }
+  .cta-secondary:hover { background: rgba(255, 255, 255, 0.18); }
+  .hero-microcopy {
+    font-size: 14px;
+    opacity: 0.6;
+  }
+  @media (max-width: 700px) {
+    .hero { padding: 56px 20px 72px; }
+    .hero h1 { font-size: 34px; letter-spacing: -0.75px; }
+    .hero-subtitle { font-size: 17px; }
+    .cta-primary, .cta-secondary { font-size: 16px; padding: 16px 24px; }
+  }
+
+  /* === Trust strip === */
+  .trust {
+    background: var(--navy-light);
+    color: #fff;
+    padding: 18px 24px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .trust-items {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .trust-item { opacity: 0.92; }
+  .trust-item strong { color: var(--green); }
+
+  /* === Container === */
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .container-narrow {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* === Section === */
+  section { padding: 72px 0; }
+  section.tight { padding: 48px 0; }
+  .section-eyebrow {
+    color: var(--green);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+  }
+  .section-lead {
+    font-size: 18px;
+    color: var(--gray-700);
+    line-height: 1.65;
+    margin-bottom: 32px;
+    max-width: 680px;
+  }
+  .text-center .section-lead { margin-left: auto; margin-right: auto; }
+  @media (max-width: 700px) {
+    section { padding: 52px 0; }
+    .section-title { font-size: 28px; }
+    .section-lead { font-size: 16px; }
+  }
+
+  /* === Problem callout === */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 8px;
+  }
+  .problem-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 24px;
+    border: 1px solid var(--gray-200);
+    border-left: 4px solid var(--red);
+  }
+  .problem-card h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .problem-card p {
+    font-size: 15px;
+    color: var(--gray-700);
+    line-height: 1.6;
+  }
+
+  /* === Differentiators === */
+  .diff-section {
+    background: #fff;
+  }
+  .diff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 8px;
+  }
+  .diff-card {
+    padding: 28px;
+    border-radius: var(--radius);
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .diff-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  .diff-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--navy), var(--navy-light));
+    color: #fff;
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  .diff-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+  .diff-card p {
+    font-size: 15px;
+    color: var(--gray-700);
+    line-height: 1.65;
+  }
+
+  /* === Comparison table === */
+  .compare-section {
+    background: linear-gradient(180deg, var(--gray-50) 0%, #fff 100%);
+  }
+  .compare-table {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    margin-top: 16px;
+  }
+  .compare-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--gray-100);
+    align-items: center;
+    gap: 12px;
+  }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row.header {
+    background: var(--navy);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+  }
+  .compare-row.header .compare-category { color: #fff; }
+  .compare-category {
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 15px;
+  }
+  .compare-cell { text-align: center; font-size: 15px; color: var(--gray-700); }
+  .compare-row .compare-cell.highlight-col {
+    background: var(--green-light);
+    color: var(--green-dark);
+    font-weight: 700;
+    border-left: 1px solid var(--green);
+    border-right: 1px solid var(--green);
+    margin: -18px 0;
+    padding: 18px 8px;
+  }
+  .compare-row.header .compare-cell.highlight-col {
+    background: var(--green);
+    color: #fff;
+    font-weight: 800;
+  }
+  @media (max-width: 760px) {
+    .compare-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 18px; }
+    .compare-row.header { display: none; }
+    .compare-category { font-size: 13px; text-transform: uppercase; color: var(--gray-500); letter-spacing: 1px; margin-bottom: 4px; }
+    .compare-cell { text-align: left; padding: 6px 0; border-left: 3px solid var(--gray-200); padding-left: 12px; }
+    .compare-cell::before { content: attr(data-label) ": "; font-weight: 700; color: var(--navy); }
+    .compare-cell.highlight-col { border-left: 3px solid var(--green); background: var(--green-light); }
+  }
+
+  /* === Pricing === */
+  .pricing-section {
+    background: var(--gray-50);
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 16px;
+    align-items: stretch;
+  }
+  .pricing-card {
+    background: #fff;
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--gray-200);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .pricing-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .pricing-card.highlighted {
+    border-color: var(--green);
+    transform: scale(1.03);
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    z-index: 1;
+  }
+  .pricing-card.highlighted:hover { transform: scale(1.03) translateY(-4px); }
+  .pricing-tag {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--green);
+    color: #fff;
+    padding: 6px 18px;
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(75, 209, 55, 0.4);
+  }
+  .pricing-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-500);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .pricing-headline {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 4px;
+    letter-spacing: -0.25px;
+  }
+  .pricing-tagline {
+    font-size: 14px;
+    color: var(--gray-500);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    min-height: 42px;
+  }
+  .pricing-amount {
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .pricing-period {
+    font-size: 16px;
+    color: var(--gray-500);
+    font-weight: 500;
+  }
+  .pricing-non-dg {
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-top: 8px;
+  }
+  .pricing-divider {
+    height: 1px;
+    background: var(--gray-200);
+    margin: 24px 0;
+  }
+  .pricing-for {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--green-dark);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .pricing-features {
+    list-style: none;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+  .pricing-features li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--gray-700);
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.5;
+  }
+  .pricing-features li::before {
+    content: '✓';
+    color: var(--green);
+    font-weight: 800;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .pricing-card .cta-primary {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+  .pricing-card .cta-outlined {
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    color: var(--navy) !important;
+    border: 2px solid var(--navy);
+    padding: 16px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.15s, color 0.15s;
+  }
+  .pricing-card .cta-outlined:hover {
+    background: var(--navy);
+    color: #fff !important;
+  }
+  @media (max-width: 900px) {
+    .pricing-grid { grid-template-columns: 1fr; gap: 20px; }
+    .pricing-card.highlighted { transform: none; }
+    .pricing-card.highlighted:hover { transform: translateY(-4px); }
+  }
+
+  .pricing-footer {
+    text-align: center;
+    margin-top: 40px;
+    color: var(--gray-700);
+    font-size: 15px;
+  }
+  .pricing-footer strong { color: var(--navy); }
+
+  /* === Case study === */
+  .case-section {
+    background: var(--navy);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .case-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(75, 209, 55, 0.1) 0%, transparent 35%),
+      radial-gradient(circle at 85% 70%, rgba(52, 152, 219, 0.08) 0%, transparent 35%);
+    pointer-events: none;
+  }
+  .case-content { position: relative; z-index: 1; }
+  .case-section .section-eyebrow { color: var(--green); }
+  .case-section .section-title { color: #fff; }
+  .case-section .section-lead { color: rgba(255, 255, 255, 0.85); }
+
+  .case-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .case-stat {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    padding: 24px 20px;
+    text-align: center;
+  }
+  .case-stat-number {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .case-stat-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.4;
+  }
+  @media (max-width: 700px) {
+    .case-stats { grid-template-columns: repeat(2, 1fr); }
+    .case-stat-number { font-size: 32px; }
+  }
+
+  .case-quote {
+    background: rgba(255, 255, 255, 0.04);
+    border-left: 4px solid var(--green);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 24px 28px;
+    margin-top: 32px;
+    font-size: 18px;
+    line-height: 1.6;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.92);
+  }
+  .case-quote footer {
+    margin-top: 12px;
+    font-style: normal;
+    font-size: 14px;
+    color: var(--green);
+    font-weight: 700;
+  }
+
+  /* === Guarantee === */
+  .guarantee-section { background: #fff; }
+  .guarantee-box {
+    background: linear-gradient(135deg, var(--green-light) 0%, #fff 100%);
+    border: 2px solid var(--green);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    text-align: center;
+    position: relative;
+  }
+  .guarantee-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: var(--green);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 32px;
+    margin-bottom: 16px;
+    box-shadow: 0 8px 24px rgba(75, 209, 55, 0.35);
+  }
+  .guarantee-box h3 {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 12px;
+    letter-spacing: -0.25px;
+  }
+  .guarantee-box p {
+    font-size: 16px;
+    color: var(--gray-700);
+    max-width: 620px;
+    margin: 0 auto 20px;
+    line-height: 1.65;
+  }
+  .guarantee-tiers {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .guarantee-tier {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-700);
+  }
+  .guarantee-tier strong { color: var(--navy); display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.75px; }
+
+  /* === FAQ === */
+  .faq-section { background: var(--gray-50); }
+  .faq-list { max-width: 780px; margin: 0 auto; }
+  .faq-item {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.15s;
+  }
+  .faq-item:hover { box-shadow: var(--shadow); }
+  .faq-item summary {
+    padding: 20px 24px;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 16px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--gray-500);
+    transition: transform 0.2s;
+  }
+  .faq-item[open] summary::after {
+    content: '−';
+    color: var(--green);
+  }
+  .faq-body {
+    padding: 0 24px 20px;
+    font-size: 15px;
+    color: var(--gray-700);
+    line-height: 1.7;
+  }
+  .faq-body p + p { margin-top: 12px; }
+
+  /* === Final CTA === */
+  .final-cta {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+    color: #fff;
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(75, 209, 55, 0.08) 0%, transparent 50%);
+  }
+  .final-cta-content { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+  .final-cta h2 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.75px;
+    margin-bottom: 20px;
+  }
+  .final-cta p {
+    font-size: 18px;
+    opacity: 0.85;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+  .final-cta .hero-microcopy { margin-top: 20px; }
+  @media (max-width: 700px) {
+    .final-cta h2 { font-size: 30px; }
+    .final-cta p { font-size: 16px; }
+  }
+
+  /* === Signature === */
+  .signature {
+    background: #fff;
+    padding: 48px 24px;
+    text-align: center;
+    border-top: 1px solid var(--gray-200);
+  }
+  .signature-text {
+    font-size: 16px;
+    color: var(--gray-700);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+  .signature-names {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.25px;
+  }
+  .signature-title {
+    font-size: 14px;
+    color: var(--gray-500);
+    margin-top: 2px;
+  }
+
+  /* === Footer === */
+  .footer {
+    background: var(--gray-900);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 32px 24px;
+    text-align: center;
+    font-size: 14px;
+  }
+  .footer a { color: var(--green); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  .footer-logo {
+    font-size: 16px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.25px;
+  }
+  .footer-logo span { color: var(--green); }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="/" class="topnav-brand">Door<span>Grow</span></a>
+  <div class="topnav-links">
+    <a href="#differentiators">Approach</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#case-study">Results</a>
+    <a href="#faq">FAQ</a>
+    <a href="sms:+15126402092?body=SEO" class="topnav-cta">Text SEO →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <span class="hero-eyebrow"><span class="dot"></span>DoorGrow Search Dominance</span>
+    <h1>Dominate Page One in your market. On Google <span class="highlight">AND</span> in AI Answers.</h1>
+    <p class="hero-subtitle">Done-for-you SEO and Answer Engine Optimization built exclusively for property management companies. Three tiers, starting at $697/month. No setup fee. Month-to-month.</p>
+    <div class="hero-ctas">
+      <a href="sms:+15126402092?body=SEO" class="cta-primary">Text "SEO" to 512-640-2092 →</a>
+      <a href="#pricing" class="cta-secondary">See the three tiers</a>
+    </div>
+    <div class="hero-microcopy">Jason's personal iPhone. He responds personally. No sales team.</div>
+  </div>
+</header>
+<div class="stripe"></div>
+
+<div class="trust">
+  <div class="trust-items">
+    <div class="trust-item"><strong>500+</strong> PM companies helped</div>
+    <div class="trust-item"><strong>15+ years</strong> in property management</div>
+    <div class="trust-item"><strong>100%</strong> of our clients are PMs</div>
+    <div class="trust-item"><strong>Month-to-month</strong>. No contracts on Foundation or Growth.</div>
+  </div>
+</div>
+
+<!-- === Problem === -->
+<section id="problem">
+  <div class="container">
+    <div class="text-center" style="text-align: center; margin-bottom: 40px;">
+      <div class="section-eyebrow">The Problem</div>
+      <h2 class="section-title">Why most SEO fails for property managers</h2>
+      <p class="section-lead" style="margin: 0 auto;">If you've tried SEO before and it didn't work, you're probably right. Here's why most agencies waste your money.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <h4>They target the wrong keywords</h4>
+        <p>Generic agencies go after broad terms that attract students and other PMs. Not investors ready to hire.</p>
+      </div>
+      <div class="problem-card">
+        <h4>They write blog posts nobody reads</h4>
+        <p>"Top 10 Tips for Landlords" might get clicks. It'll never get you a signed management agreement.</p>
+      </div>
+      <div class="problem-card">
+        <h4>They don't understand your business</h4>
+        <p>You pay them to spend three months learning what property management even is before writing a single useful page.</p>
+      </div>
+      <div class="problem-card">
+        <h4>They ignore AI search entirely</h4>
+        <p>Most agencies are still running the 2019 playbook. They have no idea how to make ChatGPT or Google AI Overviews recommend you.</p>
+      </div>
+      <div class="problem-card">
+        <h4>They rent you optimizations</h4>
+        <p>"Set-it-and-forget-it AI SEO" services inject on-page changes via a script. Cancel the subscription, the optimizations disappear. You're renting, not owning.</p>
+      </div>
+      <div class="problem-card">
+        <h4>They measure traffic, not doors</h4>
+        <p>"You got 2,000 visitors this month!" Great. How many were investors looking to hire? If the answer is three, you paid for noise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === What Makes Us Different === -->
+<section id="differentiators" class="diff-section">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 40px;">
+      <div class="section-eyebrow">What makes us different</div>
+      <h2 class="section-title">Six things we do that nobody else does</h2>
+      <p class="section-lead" style="margin: 0 auto;">Brand voice first. Property management only. AI search as a core pillar, not an afterthought. What we build stays built, even if you cancel.</p>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <div class="diff-number">1</div>
+        <h3>We only work with PMs</h3>
+        <p>15 years in this industry. 500+ PM businesses coached. We know your customer, your sales cycle, and which keywords turn into signed agreements. We don't do dentists, lawyers, or plumbers.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-number">2</div>
+        <h3>We design for leads, not rankings</h3>
+        <p>Every page is evaluated against one question: will this bring an investor ready to hire a PM? If the answer is no, we don't build it. We measure signed agreements, not traffic.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-number">3</div>
+        <h3>We plan around your Domain Authority</h3>
+        <p>Most DoorGrow clients start at DA under 10. A cookie-cutter plan won't work. We pull your current DA, your competitors' DA, and the backlink gap, then build a plan that actually moves the number.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-number">4</div>
+        <h3>We write in your voice</h3>
+        <p>AI slop in a generic robot voice doesn't rank anymore. We build a structured voice profile for your business and every page runs through a voice-compliance audit before publish. It sounds like you on your best day.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-number">5</div>
+        <h3>We optimize for Answer Engines</h3>
+        <p>45% of Google searches now show AI Overviews. ChatGPT and Perplexity are answering "best PM in [city]" every day. We build the entity signals, statistics, and schema that make AI confidently name you. Most agencies haven't started on this.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-number">6</div>
+        <h3>We build your engine, not a black box</h3>
+        <p>Every client gets a dedicated automation layer running daily. The content, links, rankings, and authority stay with you if you ever leave. What we build stays built, whether you keep paying us or not.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === Comparison === -->
+<section class="compare-section tight">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <div class="section-eyebrow">The Alternatives</div>
+      <h2 class="section-title">How we compare</h2>
+    </div>
+    <div class="compare-table">
+      <div class="compare-row header">
+        <div class="compare-category"></div>
+        <div class="compare-cell">Generic SEO Agency</div>
+        <div class="compare-cell">$500 Automated AI SEO</div>
+        <div class="compare-cell highlight-col">DoorGrow Search Dominance</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-category">PM specialization</div>
+        <div class="compare-cell" data-label="Generic">No</div>
+        <div class="compare-cell" data-label="Automated">No</div>
+        <div class="compare-cell highlight-col" data-label="DoorGrow">Exclusive</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-category">Voice-aligned content</div>
+        <div class="compare-cell" data-label="Generic">Sometimes</div>
+        <div class="compare-cell" data-label="Automated">No (generic AI)</div>
+        <div class="compare-cell highlight-col" data-label="DoorGrow">Every page</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-category">AI / Answer Engine optimization</div>
+        <div class="compare-cell" data-label="Generic">Rare</div>
+        <div class="compare-cell" data-label="Automated">No</div>
+        <div class="compare-cell highlight-col" data-label="DoorGrow">Core pillar</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-category">Real backlinks (not exchanges)</div>
+        <div class="compare-cell" data-label="Generic">Varies</div>
+        <div class="compare-cell" data-label="Automated">Link exchanges</div>
+        <div class="compare-cell highlight-col" data-label="DoorGrow">Real outreach + PR</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-category">Lead attribution</div>
+        <div class="compare-cell" data-label="Generic">Vague</div>
+        <div class="compare-cell" data-label="Automated">No</div>
+        <div class="compare-cell highlight-col" data-label="DoorGrow">Tracked to keyword</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-category">If you cancel</div>
+        <div class="compare-cell" data-label="Generic">Depends</div>
+        <div class="compare-cell" data-label="Automated">Optimizations disappear</div>
+        <div class="compare-cell highlight-col" data-label="DoorGrow">Everything stays with you</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === Pricing === -->
+<section id="pricing" class="pricing-section">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 40px;">
+      <div class="section-eyebrow">Pricing</div>
+      <h2 class="section-title">Three tiers. Pick the one that fits right now.</h2>
+      <p class="section-lead" style="margin: 0 auto;">Every tier includes voice-aligned content, real authority building, Google Business Profile optimization, Answer Engine structure, and month-to-month cancellation on Foundation and Growth. Upgrade when you outgrow your current tier.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Foundation -->
+      <div class="pricing-card">
+        <div class="pricing-name">Tier 1 · Foundation</div>
+        <div class="pricing-headline">Start showing up in search</div>
+        <div class="pricing-tagline">Single-market PMs getting started. Built to compete with $500 automated AI SEO services with real human work.</div>
+        <div class="pricing-amount">$697<span class="pricing-period">/month</span></div>
+        <div class="pricing-non-dg">Non-DoorGrow site: $897/month</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-for">Best for</div>
+        <ul class="pricing-features">
+          <li>Up to 100 doors, single metro</li>
+          <li>Any starting Domain Authority (most start under 10)</li>
+          <li>2 new BOFU pages/month, voice-aligned</li>
+          <li>3-5 new referring domains/month</li>
+          <li>Google Business Profile optimization</li>
+          <li>Schema + entity foundation (AI-ready)</li>
+          <li>GA4, Search Console, Moz DA tracking</li>
+          <li>DataForSEO SERP on 10 target keywords</li>
+          <li>Monthly email report + quarterly strategy call</li>
+          <li>Shared Hermes automation agent</li>
+          <li>120-day Search Momentum Guarantee</li>
+        </ul>
+        <a href="sms:+15126402092?body=SEO%20Foundation" class="cta-outlined">Choose Foundation</a>
+      </div>
+
+      <!-- Growth -->
+      <div class="pricing-card highlighted">
+        <div class="pricing-tag">Most Picked</div>
+        <div class="pricing-name">Tier 2 · Growth</div>
+        <div class="pricing-headline">Search as a real lead channel</div>
+        <div class="pricing-tagline">Most DoorGrow clients land here. This is where Happy Homes PM is. Existing $997 Founders Rate clients are already on this tier.</div>
+        <div class="pricing-amount">$997<span class="pricing-period">/month</span></div>
+        <div class="pricing-non-dg">Non-DoorGrow site: $1,197/month</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-for">Everything in Foundation, plus</div>
+        <ul class="pricing-features">
+          <li>100-400 doors, 1-2 service areas</li>
+          <li>4-6 BOFU pages/month (up from 2)</li>
+          <li>Resource pages that earn natural links</li>
+          <li>8-12 new referring domains/month</li>
+          <li>1 local press release per quarter</li>
+          <li>Monthly LLM citation tracking (ChatGPT, Perplexity, Gemini, Claude)</li>
+          <li>Voice-compliance audit on every page before publish</li>
+          <li>Multi-market content (up to 2 metros)</li>
+          <li>Competitor backlink gap analysis monthly</li>
+          <li>Live Basecamp project + monthly strategy call</li>
+          <li>Dedicated Hermes automation agent</li>
+          <li>90-day Search Momentum Guarantee</li>
+        </ul>
+        <a href="sms:+15126402092?body=SEO%20Growth" class="cta-primary">Choose Growth</a>
+      </div>
+
+      <!-- Domination -->
+      <div class="pricing-card">
+        <div class="pricing-name">Tier 3 · Domination</div>
+        <div class="pricing-headline">Own search in every city</div>
+        <div class="pricing-tagline">For multi-market PMs with established authority (DA 20+) who want to make competitors invisible in every metro they operate in.</div>
+        <div class="pricing-amount">$1,997<span class="pricing-period">/month</span></div>
+        <div class="pricing-non-dg">Non-DoorGrow site: $2,197/month · 90-day minimum</div>
+        <div class="pricing-divider"></div>
+        <div class="pricing-for">Everything in Growth, plus</div>
+        <ul class="pricing-features">
+          <li>400+ doors, 2-4 competitive metros, DA 20+</li>
+          <li>8-12 BOFU pages/month across all markets</li>
+          <li>15-25 new referring domains/month</li>
+          <li>1 national press release/month</li>
+          <li>1-2 podcast guest placements/month</li>
+          <li>Proactive journalist outreach (Featured, HARO)</li>
+          <li>Weekly LLM citation tracking + gap-closing</li>
+          <li>1 linkable asset/quarter (tools, guides, data)</li>
+          <li>Programmatic SEO infrastructure</li>
+          <li>CRM integration (HubSpot, GHL, Buildium, AppFolio)</li>
+          <li>Live dashboard + bi-weekly check-ins + monthly strategy call with Jon + Sarah</li>
+          <li>Quarterly business review with Jason (DoorGrow CEO)</li>
+          <li>60-day Search Momentum Guarantee</li>
+        </ul>
+        <a href="sms:+15126402092?body=SEO%20Domination" class="cta-outlined">Choose Domination</a>
+      </div>
+    </div>
+
+    <div class="pricing-footer">
+      <strong>Not sure which tier?</strong> Text "SEO" to 512-640-2092. We'll pull your current rankings and tell you honestly which tier fits (and sometimes, that none of them do and you should spend the money elsewhere).
+    </div>
+  </div>
+</section>
+
+<!-- === Case Study === -->
+<section id="case-study" class="case-section">
+  <div class="container case-content">
+    <div>
+      <div class="section-eyebrow">Real Results</div>
+      <h2 class="section-title">Happy Homes PM, Charleston SC</h2>
+      <p class="section-lead">Started at DA 16, 74 referring domains, ~630 organic clicks/month. Two months into our Growth tier, here's what the numbers look like.</p>
+    </div>
+
+    <div class="case-stats">
+      <div class="case-stat">
+        <div class="case-stat-number">+41%</div>
+        <div class="case-stat-label">Organic Clicks<br>Month 1</div>
+      </div>
+      <div class="case-stat">
+        <div class="case-stat-number">+49%</div>
+        <div class="case-stat-label">Users<br>Year-Over-Year</div>
+      </div>
+      <div class="case-stat">
+        <div class="case-stat-number">#4.6</div>
+        <div class="case-stat-label">Avg Position<br>"PM Charleston SC"</div>
+      </div>
+      <div class="case-stat">
+        <div class="case-stat-number">#3</div>
+        <div class="case-stat-label">Map Pack<br>3 Major Keywords</div>
+      </div>
+    </div>
+
+    <div class="case-quote">
+      "Charleston property management" moved from avg position 15.6 to 10.7 in 30 days. "Charleston long-term rentals" moved from 14.0 to 8.4. Year-over-year organic traffic: +127%. By month 2, "property management Charleston SC" hit avg position 4.6. Top 5 on Google for their most valuable commercial keyword.
+      <footer>— Happy Homes PM, Growth tier ($997/mo), months 1-2</footer>
+    </div>
+  </div>
+</section>
+
+<!-- === Guarantee === -->
+<section class="guarantee-section">
+  <div class="container-narrow">
+    <div class="guarantee-box">
+      <div class="guarantee-icon">✓</div>
+      <h3>Search Momentum Guarantee</h3>
+      <p>If you haven't seen meaningful ranking movement or qualified owner inquiries within the guarantee window (and we've both held up our end), we work for free for the next 30 days while we fix it.</p>
+      <div class="guarantee-tiers">
+        <div class="guarantee-tier"><strong>Foundation</strong>120 days</div>
+        <div class="guarantee-tier"><strong>Growth</strong>90 days</div>
+        <div class="guarantee-tier"><strong>Domination</strong>60 days</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === FAQ === -->
+<section id="faq" class="faq-section">
+  <div class="container-narrow">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <div class="section-eyebrow">FAQ</div>
+      <h2 class="section-title">Questions we hear most</h2>
+    </div>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>My Domain Authority is under 10. Is SEO even worth it?</summary>
+        <div class="faq-body">
+          <p>Yes, but with realistic expectations. At DA under 10, you can't outrank a DA 25 competitor through content alone. That's why Foundation focuses on building the authority foundation first (real directories, schema, voice-aligned content that earns natural links). Growth tier accelerates with real outreach and PR.</p>
+          <p>Most DoorGrow clients start at DA under 10 and end the first year at DA 12-18 with the right plan. We won't pretend we'll get you to DA 30 in 90 days. Anyone who tells you that is lying.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Wait, doesn't DoorGrow teach that SEO isn't worth it?</summary>
+        <div class="faq-body">
+          <p>We teach that SEO shouldn't be your <em>primary</em> growth strategy. That's still true. Your Growth Engines (Realtor Intros, Neighbor Strategy, Direct Outreach) bring warmer leads that close at 80-90%. That's where you should focus first.</p>
+          <p>But once your foundation is solid and your Growth Engines are running, you're leaving doors on the table if your website isn't visible in search. Growth Engines are your offense. Search Dominance makes sure you're not leaving points on the board.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How is this different from the $500 automated AI SEO services?</summary>
+        <div class="faq-body">
+          <p>Automated-only services publish 30 AI articles a month in a generic robot voice and use link-exchange networks. They inject on-page optimizations that disappear the moment you stop paying. No voice match. No AI citation tracking. No strategy.</p>
+          <p>We use automation (our Hermes agent infrastructure) to scale the pieces that benefit from automation: keyword discovery, draft generation, monitoring, reporting. But every piece of content goes through brand-voice and editorial review before it ships. Automation is how we keep prices reasonable while still doing real work. It's not a substitute for the work.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How long before I see results?</summary>
+        <div class="faq-body">
+          <p>Measurable ranking improvements within 60-90 days. Real traffic and lead impact within 4-6 months. SEO is not instant. Anyone who tells you otherwise is lying.</p>
+          <p>Unlike paid ads, SEO compounds. The work in month 1 keeps paying dividends in month 12 and beyond. Happy Homes saw "Charleston property management" move 5 positions in the first 30 days.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you guarantee specific rankings?</summary>
+        <div class="faq-body">
+          <p>We don't guarantee specific ranking positions. No one honest does. What we guarantee: the Search Momentum Guarantee above. Miss the threshold and we work for free for the next 30 days until we fix it.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>I don't have a DoorGrow website. Can you still help?</summary>
+        <div class="faq-body">
+          <p>Yes. We work with property management websites on any platform. We'll audit your site, optimize within your existing architecture, and tell you honestly if your website is limiting your results.</p>
+          <p>The +$200/month differential on each tier reflects the extra time to audit, learn, and work within an unfamiliar codebase. For DoorGrow sites, we built them with SEO infrastructure from the start, so there's zero ramp-up.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What if I cancel?</summary>
+        <div class="faq-body">
+          <p>All pages, links, schema, and assets stay with you. We don't rip anything out. The Hermes automation layer stops running, but rankings that were earned stay earned. SEO doesn't reverse when you cancel. It just stops compounding.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I start on Foundation and upgrade later?</summary>
+        <div class="faq-body">
+          <p>Yes. No setup fees for upgrades. We pro-rate the month. Move up when you outgrow your current tier. Move down if it's too much. The goal is whatever actually moves your business.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- === Final CTA === -->
+<section class="final-cta">
+  <div class="final-cta-content">
+    <h2>Ready to see where you actually stand?</h2>
+    <p>Text "SEO" and we'll pull your current rankings, your competitors', Domain Authority, and the realistic opportunities in your market. No cost. No pressure. No sales team. Just Jason on his personal iPhone.</p>
+    <div class="hero-ctas">
+      <a href="sms:+15126402092?body=SEO" class="cta-primary">Text "SEO" to 512-640-2092 →</a>
+      <a href="mailto:jon@doorgrow.com?subject=SEO%20Tiers" class="cta-secondary">Email jon@doorgrow.com</a>
+    </div>
+    <div class="hero-microcopy">Founders Rate limited slots remain on each tier. Once filled, pricing goes up.</div>
+  </div>
+</section>
+<div class="stripe"></div>
+
+<!-- === Signature === -->
+<section class="signature">
+  <div class="signature-text">Your Growth Engines bring the best leads. Search Dominance makes sure you capture the rest. And that AI knows your name.</div>
+  <div style="margin-top: 24px;"></div>
+  <div class="signature-text">To your growth,</div>
+  <div class="signature-names">Jason and Sarah Hull</div>
+  <div class="signature-title">Owners, DoorGrow</div>
+</section>
+
+<footer class="footer">
+  <div class="footer-logo">Door<span>Grow</span></div>
+  <div>The world leader in growing residential property management companies.</div>
+  <div style="margin-top: 12px;">
+    <a href="https://doorgrow.com">doorgrow.com</a> · <a href="mailto:jon@doorgrow.com">jon@doorgrow.com</a> · <a href="sms:+15126402092">512-640-2092</a>
+  </div>
+</footer>
+
+</body>
+</html>
