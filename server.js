@@ -21,10 +21,10 @@ const JSON_HEADERS = {
 };
 
 const STATIC_ROUTES = {
-  '/seo': 'seo-tiers.html',
-  '/seo-tiers': 'seo-tiers.html',
-  '/seo/': 'seo-tiers.html',
-  '/seo-tiers/': 'seo-tiers.html',
+  '/seo': 'seo-plain.html',
+  '/seo/': 'seo-plain.html',
+  '/seo-tiers': 'seo-plain.html',
+  '/seo-tiers/': 'seo-plain.html',
   '/seo-plain': 'seo-plain.html',
   '/seo-plain/': 'seo-plain.html',
   '/seo-simple': 'seo-plain.html',
@@ -60,12 +60,8 @@ const INDEX_HTML = `<!DOCTYPE html>
 
   <div class="section-label">Public Landing Pages</div>
   <div class="card">
-    <h2><a href="/seo">Search Dominance Pricing (technical version) &rarr;</a></h2>
-    <p>The original three-tier offer page with technical deliverable bullets. Lives at /seo and /seo-tiers.</p>
-  </div>
-  <div class="card">
-    <h2><a href="/seo-plain">Search Dominance Pricing (simplified version) &rarr;</a></h2>
-    <p>Conversational rewrite with PM-tailored Domain Authority checker baked in. Lives at /seo-plain and /seo-simple.</p>
+    <h2><a href="/seo">Search Dominance Pricing &rarr;</a></h2>
+    <p>The three-tier SEO/AEO offer for property managers, with a live Domain Authority checker. Served at /seo, /seo-tiers, /seo-plain, and /seo-simple.</p>
   </div>
 
   <div class="section-label">Client Audit Reports</div>
