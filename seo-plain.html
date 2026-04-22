@@ -171,11 +171,12 @@
   @media (max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; gap: 20px; } .pricing-card.highlighted { transform: none; } .pricing-card.highlighted:hover { transform: translateY(-4px); } }
   .pricing-footer { text-align: center; margin-top: 40px; color: var(--gray-700); font-size: 15px; }
   .pricing-footer strong { color: var(--navy); }
-  .pricing-glossary { background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 24px; margin-top: 32px; }
-  .pricing-glossary h4 { font-size: 14px; color: var(--navy); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px; }
-  .pricing-glossary dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
-  .pricing-glossary dt { font-weight: 700; color: var(--navy); font-size: 14px; margin-bottom: 4px; }
-  .pricing-glossary dd { font-size: 14px; color: var(--gray-700); line-height: 1.55; }
+  .pricing-glossary { background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 28px; margin-top: 32px; }
+  .pricing-glossary h4 { font-size: 13px; color: var(--gray-500); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; }
+  .pricing-glossary dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin: 0; }
+  .pricing-glossary .gloss-pair { padding: 16px; background: var(--gray-50); border-radius: 10px; border-left: 3px solid var(--green); }
+  .pricing-glossary dt { font-weight: 700; color: var(--navy); font-size: 14px; margin-bottom: 6px; }
+  .pricing-glossary dd { font-size: 14px; color: var(--gray-700); line-height: 1.55; margin: 0; }
 
   .case-section { background: var(--navy); color: #fff; position: relative; overflow: hidden; }
   .case-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 15% 20%, rgba(75, 209, 55, 0.1) 0%, transparent 35%), radial-gradient(circle at 85% 70%, rgba(52, 152, 219, 0.08) 0%, transparent 35%); pointer-events: none; }
@@ -661,18 +662,30 @@
     <div class="pricing-glossary">
       <h4>Quick definitions (in case you've never seen these terms)</h4>
       <dl>
-        <dt>Lead-gen page</dt>
-        <dd>A page on your site built to turn "property management in [city]" searches into signed agreements. Different from a blog post (which builds topical authority) but related.</dd>
-        <dt>Backlink / linking site</dt>
-        <dd>Another website that links to yours. The more trustworthy sites that link to you, the more Google trusts you. It's how Google measures your "credit score."</dd>
-        <dt>Google Business Profile</dt>
-        <dd>The box that shows up on the right when you Google a business name. Includes your map, hours, photos, reviews. We optimize it so you appear in the local map pack.</dd>
-        <dt>AI citation</dt>
-        <dd>When ChatGPT, Perplexity, Google AI, or another AI tool names YOU in their answer to "who's the best property manager in [city]?"</dd>
-        <dt>Schema markup</dt>
-        <dd>Invisible code on your website that tells Google and AI tools "this is a property management company in Charleston, here are our services, here's our address." Helps you show up in the right searches.</dd>
-        <dt>24/7 Automation Agent</dt>
-        <dd>Software that runs in the background continuously, handling keyword research, draft generation, ranking monitoring, and technical scans. A real person is in the loop making strategic decisions to bring you more leads.</dd>
+        <div class="gloss-pair">
+          <dt>Lead-gen page</dt>
+          <dd>A page on your site built to turn "property management in [city]" searches into signed agreements. Different from a blog post (which builds topical authority) but related.</dd>
+        </div>
+        <div class="gloss-pair">
+          <dt>Backlink / linking site</dt>
+          <dd>Another website that links to yours. The more trustworthy sites that link to you, the more Google trusts you. It's how Google measures your "credit score."</dd>
+        </div>
+        <div class="gloss-pair">
+          <dt>Google Business Profile</dt>
+          <dd>The box that shows up on the right when you Google a business name. Includes your map, hours, photos, reviews. We optimize it so you appear in the local map pack.</dd>
+        </div>
+        <div class="gloss-pair">
+          <dt>AI citation</dt>
+          <dd>When ChatGPT, Perplexity, Google AI, or another AI tool names YOU in their answer to "who's the best property manager in [city]?"</dd>
+        </div>
+        <div class="gloss-pair">
+          <dt>Schema markup</dt>
+          <dd>Invisible code on your website that tells Google and AI tools "this is a property management company in Charleston, here are our services, here's our address." Helps you show up in the right searches.</dd>
+        </div>
+        <div class="gloss-pair">
+          <dt>24/7 Automation Agent</dt>
+          <dd>Software that runs in the background continuously, handling keyword research, draft generation, ranking monitoring, and technical scans. A real person is in the loop making strategic decisions to bring you more leads.</dd>
+        </div>
       </dl>
     </div>
   </div>
