@@ -29,6 +29,12 @@ const STATIC_ROUTES = {
   '/seo-plain/': 'seo-plain.html',
   '/seo-simple': 'seo-plain.html',
   '/seo-simple/': 'seo-plain.html',
+  '/ga': 'growth-accelerator.html',
+  '/ga/': 'growth-accelerator.html',
+  '/growth-accelerator': 'growth-accelerator.html',
+  '/growth-accelerator/': 'growth-accelerator.html',
+  '/mastermind': 'growth-accelerator.html',
+  '/mastermind/': 'growth-accelerator.html',
   '/propspecific': 'propspecific.html',
   '/propspecific/': 'propspecific.html',
   '/cedarsprings': 'cedarsprings.html',
@@ -62,6 +68,10 @@ const INDEX_HTML = `<!DOCTYPE html>
   <div class="card">
     <h2><a href="/seo">Search Dominance Pricing &rarr;</a></h2>
     <p>The three-tier SEO/AEO offer for property managers, with a live Domain Authority checker. Served at /seo, /seo-tiers, /seo-plain, and /seo-simple.</p>
+  </div>
+  <div class="card">
+    <h2><a href="/ga">Growth Accelerator Mastermind &rarr;</a></h2>
+    <p>The in-person mastermind offer. $4,000 launch + $1,100/month. Includes a lead-capturing Door Math Calculator. Served at /ga, /growth-accelerator, and /mastermind.</p>
   </div>
 
   <div class="section-label">Client Audit Reports</div>
@@ -198,6 +208,77 @@ function postLeadWebhook(payload) {
   }
 }
 
+async function handleDoorMath(req, res) {
+  let body;
+  try { body = await readJsonBody(req); }
+  catch (e) { jsonResponse(res, 400, { success: false, error: e.message }); return; }
+
+  const rent = parseFloat(body.rent);
+  const fee = parseFloat(body.fee);
+  const doors = parseInt(body.doors, 10);
+  const name = (body.name || '').toString().trim();
+  const email = (body.email || '').toString().trim();
+  const phone = (body.phone || '').toString().trim();
+
+  if (!name || !email || !rent || !fee || !doors) {
+    jsonResponse(res, 400, { success: false, error: 'Rent, fee, doors, name, and email are required.' });
+    return;
+  }
+  if (!isEmail(email)) {
+    jsonResponse(res, 400, { success: false, error: 'Please provide a valid email address.' });
+    return;
+  }
+  if (rent < 100 || fee < 1 || fee > 50 || doors < 1) {
+    jsonResponse(res, 400, { success: false, error: 'Numbers look off. Rent should be at least $100, fee 1-50%, doors at least 1.' });
+    return;
+  }
+
+  const per_door_monthly = rent * (fee / 100);
+  const monthly_revenue = per_door_monthly * doors;
+  const annual_revenue = monthly_revenue * 12;
+  // Assume half the new doors come with a vacancy needing a placement, leasing fee = 50% of one month's rent
+  const leasing_revenue = (doors / 2) * (rent * 0.5);
+  const program_year_one = 4000 + (1100 * 12);
+  const total_first_year_value = annual_revenue + leasing_revenue;
+  // Payback in months (program runs $1,100/mo after launch; new MRR pays it down after launch is recovered)
+  const launch_recovery_months = leasing_revenue >= 4000 ? 1 : Math.ceil(4000 / Math.max(leasing_revenue / 6, 1));
+  const monthly_recovery_months = monthly_revenue > 0 ? Math.ceil(1100 / monthly_revenue) : 999;
+  const payback_months = Math.max(1, Math.min(12, launch_recovery_months + monthly_recovery_months - 1));
+
+  let interpretation;
+  if (monthly_revenue >= 5000) {
+    interpretation = "These numbers say the program pays for itself many times over. The bigger question is whether you're actually willing to fly to Austin and do the work. If yes, text Jason and let's talk timing.";
+  } else if (monthly_revenue >= 1500) {
+    interpretation = "Cash-positive territory. Once you hit your door target, the membership pays for itself and you're netting the rest. This is where most of our clients land in their first 6-12 months.";
+  } else if (monthly_revenue >= 500) {
+    interpretation = "You're close to break-even on the monthly. The leasing fees from your first wave will likely cover the launch package. Worth a conversation about whether the alternative payment plan fits better.";
+  } else {
+    interpretation = "Those numbers are tight. We'd want to talk through whether a smaller starting program (or our free Clarity Assessment first) makes more sense for you right now.";
+  }
+
+  const lead = {
+    timestamp: new Date().toISOString(),
+    source: 'doorgrow-ga-door-math',
+    name, email, phone,
+    rent, fee, doors,
+    monthly_revenue, annual_revenue, leasing_revenue, payback_months,
+  };
+
+  console.log('[GA-DOOR-MATH LEAD]', JSON.stringify(lead));
+  postLeadWebhook(lead);
+
+  jsonResponse(res, 200, {
+    success: true,
+    monthly_revenue,
+    annual_revenue,
+    leasing_revenue,
+    payback_months,
+    program_year_one,
+    total_first_year_value,
+    interpretation,
+  });
+}
+
 async function handleDomainCheck(req, res) {
   let body;
   try { body = await readJsonBody(req); }
@@ -265,6 +346,11 @@ const server = http.createServer((req, res) => {
 
   if (req.method === 'POST' && reqPath === '/api/domain-check') {
     handleDomainCheck(req, res);
+    return;
+  }
+
+  if (req.method === 'POST' && reqPath === '/api/door-math') {
+    handleDoorMath(req, res);
     return;
   }
 

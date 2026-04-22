@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DoorGrow Growth Accelerator Mastermind | Add Doors Without Paid Ads</title>
+<meta name="description" content="The in-person mastermind for property managers. Three Austin Intensives a year, weekly coaching, accountability partners, and the 7 Growth Engines. $4,000 launch + $1,100/month.">
+<meta property="og:title" content="DoorGrow Growth Accelerator Mastermind">
+<meta property="og:description" content="Get in the room with serious PM owners. Three Austin Intensives a year. Weekly coaching. The 7 Growth Engines. Most clients offset the cost after adding 10 doors.">
+<meta property="og:image" content="https://doorgrow.com/wp-content/uploads/2025/09/live-events.jpg">
+<link rel="icon" href="https://doorgrow.com/wp-content/uploads/2023/09/squareDGlogo.png">
+<style>
+  :root {
+    --navy: #021f42; --navy-dark: #011329; --navy-light: #0a2d5c;
+    --green: #4bd137; --green-dark: #27ae60; --green-light: #e8f9e5;
+    --red: #e74c3c; --red-dark: #c0392b; --red-light: #fdecea;
+    --yellow: #f39c12; --yellow-light: #fef9e7;
+    --blue: #3498db;
+    --gray-50: #f8f9fa; --gray-100: #f1f3f5; --gray-200: #e9ecef;
+    --gray-300: #dee2e6; --gray-500: #6c757d; --gray-700: #495057; --gray-900: #212529;
+    --shadow: 0 2px 8px rgba(2, 31, 66, 0.08);
+    --shadow-lg: 0 4px 24px rgba(2, 31, 66, 0.12);
+    --shadow-xl: 0 12px 40px rgba(2, 31, 66, 0.18);
+    --radius: 12px; --radius-lg: 16px;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-mono: 'SF Mono', 'Fira Code', Menlo, monospace;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); background: var(--gray-50); color: var(--gray-900); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: var(--navy); }
+  img { max-width: 100%; display: block; }
+
+  .stripe { height: 6px; background: linear-gradient(90deg, var(--green) 0%, var(--green) 33%, var(--yellow) 33%, var(--yellow) 66%, var(--red) 66%, var(--red) 100%); }
+
+  .topnav { background: #fff; border-bottom: 1px solid var(--gray-200); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; }
+  .topnav-brand { font-size: 18px; font-weight: 800; color: var(--navy); letter-spacing: -0.25px; text-decoration: none; }
+  .topnav-brand span { color: var(--green); }
+  .topnav-links { display: flex; gap: 24px; align-items: center; }
+  .topnav-links a { color: var(--gray-700); text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.15s; }
+  .topnav-links a:hover { color: var(--navy); }
+  .topnav-cta { background: var(--green); color: #fff !important; padding: 10px 20px; border-radius: 8px; font-weight: 700; transition: transform 0.15s, box-shadow 0.15s; }
+  .topnav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(75, 209, 55, 0.3); }
+  @media (max-width: 700px) { .topnav-links a:not(.topnav-cta) { display: none; } }
+
+  .hero { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); color: #fff; padding: 72px 24px 88px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 20% 10%, rgba(75, 209, 55, 0.08) 0%, transparent 40%), radial-gradient(circle at 85% 85%, rgba(52, 152, 219, 0.08) 0%, transparent 40%); pointer-events: none; }
+  .hero-content { max-width: 920px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-eyebrow { display: inline-block; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 24px; padding: 8px 20px; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; }
+  .hero-eyebrow .dot { display: inline-block; width: 8px; height: 8px; background: var(--green); border-radius: 50%; margin-right: 8px; box-shadow: 0 0 10px var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+  .hero h1 { font-size: 52px; font-weight: 800; line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 20px; }
+  .hero h1 .highlight { color: var(--green); }
+  .hero-subtitle { font-size: 20px; line-height: 1.5; opacity: 0.85; max-width: 760px; margin: 0 auto 36px; }
+  .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 24px; }
+  .cta-primary { background: var(--green); color: #fff !important; padding: 18px 32px; border-radius: 10px; font-weight: 700; font-size: 17px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 4px 16px rgba(75, 209, 55, 0.3); cursor: pointer; border: none; }
+  .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(75, 209, 55, 0.45); }
+  .cta-secondary { background: rgba(255, 255, 255, 0.1); color: #fff !important; padding: 18px 28px; border-radius: 10px; font-weight: 600; font-size: 17px; text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.25); transition: background 0.15s; cursor: pointer; }
+  .cta-secondary:hover { background: rgba(255, 255, 255, 0.18); }
+  .hero-microcopy { font-size: 14px; opacity: 0.6; }
+  .hero-image { margin: 36px auto 0; max-width: 720px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.1); }
+  .hero-image img { width: 100%; height: auto; display: block; }
+  @media (max-width: 700px) { .hero { padding: 56px 20px 72px; } .hero h1 { font-size: 34px; letter-spacing: -0.75px; } .hero-subtitle { font-size: 17px; } .cta-primary, .cta-secondary { font-size: 16px; padding: 16px 24px; } }
+
+  .trust { background: var(--navy-light); color: #fff; padding: 18px 24px; text-align: center; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; }
+  .trust-items { max-width: 1100px; margin: 0 auto; display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+  .trust-item { opacity: 0.92; }
+  .trust-item strong { color: var(--green); }
+
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  .container-narrow { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+  section { padding: 72px 0; }
+  section.tight { padding: 48px 0; }
+  .section-eyebrow { color: var(--green); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  .section-title { font-size: 36px; font-weight: 800; color: var(--navy); line-height: 1.2; letter-spacing: -0.5px; margin-bottom: 16px; }
+  .section-lead { font-size: 18px; color: var(--gray-700); line-height: 1.65; margin-bottom: 32px; max-width: 720px; }
+  .text-center .section-lead { margin-left: auto; margin-right: auto; }
+  @media (max-width: 700px) { section { padding: 52px 0; } .section-title { font-size: 28px; } .section-lead { font-size: 16px; } }
+
+  .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .problem-card { background: #fff; border-radius: var(--radius); padding: 24px; border: 1px solid var(--gray-200); border-left: 4px solid var(--red); }
+  .problem-card .leak-num { font-size: 11px; font-weight: 800; color: var(--red); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .problem-card h4 { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .problem-card p { font-size: 15px; color: var(--gray-700); line-height: 1.6; }
+
+  .diff-section { background: #fff; }
+  .diff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .diff-card { padding: 28px; border-radius: var(--radius); background: var(--gray-50); border: 1px solid var(--gray-200); transition: transform 0.2s, box-shadow 0.2s; }
+  .diff-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .diff-number { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--navy), var(--navy-light)); color: #fff; font-weight: 800; font-size: 18px; margin-bottom: 16px; }
+  .diff-card h3 { font-size: 19px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .diff-card p { font-size: 15px; color: var(--gray-700); line-height: 1.65; }
+
+  /* Door Math Calculator */
+  .calc-section { background: linear-gradient(180deg, var(--gray-50) 0%, #fff 100%); }
+  .calc-wrap { background: #fff; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); overflow: hidden; border: 1px solid var(--gray-200); }
+  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; min-height: 540px; }
+  @media (max-width: 800px) { .calc-grid { grid-template-columns: 1fr; } }
+  .calc-explainer { padding: 40px; background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); color: #fff; }
+  .calc-explainer h3 { font-size: 26px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.25px; }
+  .calc-explainer p { font-size: 15px; line-height: 1.65; opacity: 0.9; margin-bottom: 14px; }
+  .calc-explainer .calc-bullets { list-style: none; margin-top: 20px; padding: 0; }
+  .calc-explainer .calc-bullets li { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 12px 16px; margin-bottom: 8px; font-size: 14px; line-height: 1.5; }
+  .calc-explainer .calc-bullets strong { color: var(--green); display: block; margin-bottom: 2px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.75px; }
+  .calc-form-side { padding: 40px; }
+  .calc-form-side h3 { font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 8px; letter-spacing: -0.25px; }
+  .calc-form-side .calc-sub { font-size: 14px; color: var(--gray-500); margin-bottom: 24px; }
+  .calc-form { display: flex; flex-direction: column; gap: 14px; }
+  .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 500px) { .calc-row { grid-template-columns: 1fr; } }
+  .calc-field label { display: block; font-size: 13px; font-weight: 700; color: var(--gray-700); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .calc-field input { width: 100%; padding: 12px 14px; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 15px; font-family: var(--font-sans); transition: border 0.15s, box-shadow 0.15s; }
+  .calc-field input:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(75, 209, 55, 0.15); }
+  .calc-submit { background: var(--green); color: #fff; padding: 14px 24px; border-radius: 8px; font-weight: 700; font-size: 15px; border: none; cursor: pointer; margin-top: 6px; transition: transform 0.15s, box-shadow 0.15s; }
+  .calc-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(75, 209, 55, 0.4); }
+  .calc-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; box-shadow: none; }
+  .calc-error { color: var(--red); font-size: 14px; margin-top: 6px; display: none; }
+  .calc-results { display: none; }
+  .calc-result-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 24px; text-align: center; margin-bottom: 16px; }
+  .calc-result-label { font-size: 11px; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: 1.5px; }
+  .calc-result-num { font-size: 44px; font-weight: 800; color: var(--green-dark); line-height: 1; margin: 8px 0; letter-spacing: -1px; }
+  .calc-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .calc-metric { background: var(--gray-50); border-radius: 8px; padding: 12px 8px; text-align: center; border: 1px solid var(--gray-200); }
+  .calc-metric-num { font-size: 18px; font-weight: 800; color: var(--navy); line-height: 1.2; }
+  .calc-metric-lbl { font-size: 10px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+  .calc-interp { background: var(--green-light); border-left: 4px solid var(--green); border-radius: 8px; padding: 14px 16px; font-size: 14px; line-height: 1.55; color: var(--gray-900); margin-bottom: 16px; }
+  .calc-cta { display: block; text-align: center; background: var(--navy); color: #fff !important; padding: 14px 24px; border-radius: 8px; font-weight: 700; font-size: 15px; text-decoration: none; transition: transform 0.15s; }
+  .calc-cta:hover { transform: translateY(-1px); }
+  .calc-reset { display: block; text-align: center; background: transparent; color: var(--gray-500); padding: 8px; font-size: 13px; border: none; cursor: pointer; margin-top: 8px; text-decoration: underline; width: 100%; }
+
+  .compare-section { background: linear-gradient(180deg, var(--gray-50) 0%, #fff 100%); }
+  .compare-table { background: #fff; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+  .compare-row { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; padding: 18px 24px; border-bottom: 1px solid var(--gray-100); align-items: center; gap: 12px; }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row.header { background: var(--navy); color: #fff; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.75px; }
+  .compare-row.header .compare-category { color: #fff; }
+  .compare-row.header .compare-cell { color: #fff; }
+  .compare-category { font-weight: 600; color: var(--navy); font-size: 15px; }
+  .compare-cell { text-align: center; font-size: 15px; color: var(--gray-700); }
+  .compare-row .compare-cell.highlight-col { background: var(--green-light); color: var(--green-dark); font-weight: 700; border-left: 1px solid var(--green); border-right: 1px solid var(--green); margin: -18px 0; padding: 18px 8px; }
+  .compare-row.header .compare-cell.highlight-col { background: var(--green); color: #fff; font-weight: 800; }
+  @media (max-width: 760px) {
+    .compare-row { grid-template-columns: 1fr; gap: 4px; padding: 14px 18px; }
+    .compare-row.header { display: none; }
+    .compare-category { font-size: 13px; text-transform: uppercase; color: var(--gray-500); letter-spacing: 1px; margin-bottom: 4px; }
+    .compare-cell { text-align: left; padding: 6px 0; border-left: 3px solid var(--gray-200); padding-left: 12px; }
+    .compare-cell::before { content: attr(data-label) ": "; font-weight: 700; color: var(--navy); }
+    .compare-cell.highlight-col { border-left: 3px solid var(--green); background: var(--green-light); margin: 0; padding: 12px; }
+  }
+
+  .pricing-section { background: var(--gray-50); }
+  .pricing-single { max-width: 760px; margin: 0 auto; }
+  .pricing-card { background: #fff; border-radius: var(--radius-lg); padding: 40px; box-shadow: var(--shadow-lg); border: 2px solid var(--green); display: flex; flex-direction: column; position: relative; }
+  .pricing-tag { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; padding: 6px 18px; border-radius: 16px; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 4px 12px rgba(75, 209, 55, 0.4); }
+  .pricing-name { font-size: 14px; font-weight: 700; color: var(--gray-500); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+  .pricing-headline { font-size: 26px; font-weight: 800; color: var(--navy); margin-bottom: 8px; letter-spacing: -0.25px; }
+  .pricing-tagline { font-size: 15px; color: var(--gray-700); line-height: 1.55; margin-bottom: 24px; }
+  .pricing-amounts { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+  .pricing-amount { font-size: 48px; font-weight: 800; color: var(--navy); line-height: 1; letter-spacing: -1px; }
+  .pricing-period { font-size: 16px; color: var(--gray-500); font-weight: 500; }
+  .pricing-launch { font-size: 14px; color: var(--gray-700); margin-top: 6px; }
+  .pricing-launch strong { color: var(--navy); }
+  .pricing-divider { height: 1px; background: var(--gray-200); margin: 28px 0; }
+  .pricing-section-label { font-size: 12px; font-weight: 700; color: var(--green-dark); text-transform: uppercase; letter-spacing: 1px; margin: 18px 0 10px; }
+  .pricing-section-label:first-of-type { margin-top: 0; }
+  .pricing-features { list-style: none; margin-bottom: 14px; }
+  .pricing-features li { padding: 8px 0; font-size: 15px; color: var(--gray-700); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+  .pricing-features li::before { content: '✓'; color: var(--green); font-weight: 800; font-size: 16px; flex-shrink: 0; }
+  .pricing-card .cta-primary { width: 100%; text-align: center; justify-content: center; margin-top: 12px; }
+  .pricing-footer { text-align: center; margin-top: 32px; color: var(--gray-700); font-size: 15px; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .pricing-footer strong { color: var(--navy); }
+  .alt-payment { margin-top: 24px; background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 24px; }
+  .alt-payment h4 { font-size: 14px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-bottom: 12px; }
+  .alt-payment p { font-size: 14px; color: var(--gray-700); line-height: 1.6; margin-bottom: 8px; }
+  .alt-payment p:last-child { margin-bottom: 0; }
+
+  .case-section { background: var(--navy); color: #fff; position: relative; overflow: hidden; }
+  .case-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 15% 20%, rgba(75, 209, 55, 0.1) 0%, transparent 35%), radial-gradient(circle at 85% 70%, rgba(52, 152, 219, 0.08) 0%, transparent 35%); pointer-events: none; }
+  .case-content { position: relative; z-index: 1; }
+  .case-section .section-eyebrow { color: var(--green); }
+  .case-section .section-title { color: #fff; }
+  .case-section .section-lead { color: rgba(255, 255, 255, 0.85); }
+  .case-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 32px 0; }
+  .case-stat-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius); padding: 24px; text-align: center; }
+  .case-stat-photo { width: 88px; height: 88px; border-radius: 50%; margin: 0 auto 16px; overflow: hidden; border: 3px solid var(--green); }
+  .case-stat-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .case-stat-number { font-size: 32px; font-weight: 800; color: var(--green); line-height: 1; margin-bottom: 8px; letter-spacing: -0.5px; }
+  .case-stat-name { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .case-stat-detail { font-size: 13px; color: rgba(255, 255, 255, 0.7); line-height: 1.4; }
+  @media (max-width: 700px) { .case-stats { grid-template-columns: 1fr; } }
+  .case-quote { background: rgba(255, 255, 255, 0.04); border-left: 4px solid var(--green); border-radius: 0 var(--radius) var(--radius) 0; padding: 24px 28px; margin-top: 32px; font-size: 18px; line-height: 1.6; font-style: italic; color: rgba(255, 255, 255, 0.92); }
+  .case-quote footer { margin-top: 12px; font-style: normal; font-size: 14px; color: var(--green); font-weight: 700; }
+  .case-extras { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 28px; }
+  .case-extra { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; padding: 18px; }
+  .case-extra strong { color: var(--green); display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+  .case-extra p { color: rgba(255, 255, 255, 0.85); font-size: 14px; line-height: 1.5; }
+
+  .roadmap-section { background: #fff; }
+  .roadmap-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 32px; }
+  .roadmap-step { padding: 24px 20px; background: var(--gray-50); border-radius: var(--radius); border-top: 4px solid var(--green); position: relative; }
+  .roadmap-step .step-num { font-size: 11px; font-weight: 800; color: var(--green-dark); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 8px; }
+  .roadmap-step h4 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .roadmap-step p { font-size: 13px; color: var(--gray-700); line-height: 1.5; }
+  .roadmap-step.current { background: var(--green-light); border-top-color: var(--green); border: 1px solid var(--green); border-top-width: 4px; }
+  .roadmap-step.current .step-num { color: var(--green-dark); }
+
+  .faq-section { background: var(--gray-50); }
+  .faq-list { max-width: 780px; margin: 0 auto; }
+  .faq-item { background: #fff; border: 1px solid var(--gray-200); border-radius: var(--radius); margin-bottom: 12px; overflow: hidden; transition: box-shadow 0.15s; }
+  .faq-item:hover { box-shadow: var(--shadow); }
+  .faq-item summary { padding: 20px 24px; cursor: pointer; font-weight: 700; color: var(--navy); font-size: 16px; list-style: none; display: flex; justify-content: space-between; align-items: center; user-select: none; gap: 16px; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; font-size: 24px; font-weight: 400; color: var(--gray-500); transition: transform 0.2s; flex-shrink: 0; }
+  .faq-item[open] summary::after { content: '−'; color: var(--green); }
+  .faq-body { padding: 0 24px 20px; font-size: 15px; color: var(--gray-700); line-height: 1.7; }
+  .faq-body p + p { margin-top: 12px; }
+
+  .final-cta { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%); color: #fff; padding: 80px 24px; text-align: center; position: relative; overflow: hidden; }
+  .final-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(75, 209, 55, 0.08) 0%, transparent 50%); }
+  .final-cta-content { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+  .final-cta h2 { font-size: 42px; font-weight: 800; line-height: 1.15; letter-spacing: -0.75px; margin-bottom: 20px; }
+  .final-cta p { font-size: 18px; opacity: 0.85; margin-bottom: 32px; line-height: 1.6; }
+  .final-cta .hero-microcopy { margin-top: 20px; }
+  @media (max-width: 700px) { .final-cta h2 { font-size: 30px; } .final-cta p { font-size: 16px; } }
+
+  .signature { background: #fff; padding: 48px 24px; text-align: center; border-top: 1px solid var(--gray-200); }
+  .signature-photo { width: 120px; height: 120px; border-radius: 50%; margin: 0 auto 20px; overflow: hidden; border: 3px solid var(--green); }
+  .signature-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .signature-text { font-size: 16px; color: var(--gray-700); margin-bottom: 8px; font-style: italic; max-width: 600px; margin-left: auto; margin-right: auto; }
+  .signature-names { font-size: 18px; font-weight: 800; color: var(--navy); letter-spacing: -0.25px; margin-top: 16px; }
+  .signature-title { font-size: 14px; color: var(--gray-500); margin-top: 2px; }
+
+  .footer { background: var(--gray-900); color: rgba(255, 255, 255, 0.7); padding: 32px 24px; text-align: center; font-size: 14px; }
+  .footer a { color: var(--green); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  .footer-logo { font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 8px; letter-spacing: -0.25px; }
+  .footer-logo span { color: var(--green); }
+
+  .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 880px; margin: 32px auto 0; }
+  @media (max-width: 700px) { .who-grid { grid-template-columns: 1fr; } }
+  .who-card { padding: 28px; border-radius: var(--radius); background: #fff; border: 1px solid var(--gray-200); }
+  .who-card.fit { border-left: 4px solid var(--green); }
+  .who-card.unfit { border-left: 4px solid var(--red); }
+  .who-card h4 { font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; }
+  .who-card.fit h4 { color: var(--green-dark); }
+  .who-card.unfit h4 { color: var(--red-dark); }
+  .who-card ul { list-style: none; padding: 0; margin: 0; }
+  .who-card li { padding: 8px 0; font-size: 15px; color: var(--gray-700); line-height: 1.5; display: flex; gap: 10px; align-items: flex-start; }
+  .who-card.fit li::before { content: '✓'; color: var(--green); font-weight: 800; flex-shrink: 0; }
+  .who-card.unfit li::before { content: '✗'; color: var(--red); font-weight: 800; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="/" class="topnav-brand">Door<span>Grow</span></a>
+  <div class="topnav-links">
+    <a href="#problem">Trust Leaks</a>
+    <a href="#how-it-works">What You Get</a>
+    <a href="#door-math">Door Math</a>
+    <a href="#pricing">Investment</a>
+    <a href="#faq">FAQ</a>
+    <a href="sms:+15126402092?body=GrowthAccelerator" class="topnav-cta">Text Jason →</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <span class="hero-eyebrow"><span class="dot"></span>DoorGrow Growth Accelerator Mastermind</span>
+    <h1>The room where property managers <span class="highlight">stop playing small.</span></h1>
+    <p class="hero-subtitle">Three Austin Intensives a year with serious PM owners. Weekly coaching between trips. The 7 Growth Engines that add doors without paid ads. Most clients offset the cost after adding 10 doors.</p>
+    <div class="hero-ctas">
+      <a href="sms:+15126402092?body=GrowthAccelerator" class="cta-primary">Text Jason: 512-640-2092</a>
+      <a href="#door-math" class="cta-secondary">Run the door math first</a>
+    </div>
+    <div class="hero-microcopy">Jason personally reviews every growth plan. Month-to-month. No annual contract.</div>
+    <div class="hero-image">
+      <img src="https://doorgrow.com/wp-content/uploads/2025/09/live-events.jpg" alt="DoorGrow in-person mastermind event in Austin" loading="lazy">
+    </div>
+  </div>
+</header>
+<div class="stripe"></div>
+
+<div class="trust">
+  <div class="trust-items">
+    <div class="trust-item"><strong>1,200+</strong> PM businesses worked with</div>
+    <div class="trust-item"><strong>127+</strong> documented case studies</div>
+    <div class="trust-item"><strong>3</strong> Austin Intensives a year</div>
+    <div class="trust-item"><strong>Month-to-month.</strong> No annual contract.</div>
+  </div>
+</div>
+
+<!-- === Problem: 6 Trust Leaks === -->
+<section id="problem">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 40px;">
+      <div class="section-eyebrow">Why you're working harder, not growing faster</div>
+      <h2 class="section-title">It's probably not a lead problem. It's a trust leak problem.</h2>
+      <p class="section-lead" style="margin: 0 auto;">After working with 1,200+ PM businesses, we've found that most owners have 4-5 active "trust leaks" killing deals before they start. Each leak costs you 2-3 deals a month. Here's the short list.</p>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="leak-num">Leak #1 · Branding</div>
+        <h4>You're branded like a real estate company</h4>
+        <p>Owners can't tell what you actually do. Word-of-mouth referrals stall. You watch competitors with worse service get the calls you should be getting.</p>
+      </div>
+      <div class="problem-card">
+        <div class="leak-num">Leak #2 · Reviews</div>
+        <h4>Bad or thin reviews clamp your lead flow</h4>
+        <p>Most PMs assume reviews happen on their own, or that asking once is enough. It isn't. Prospects pick the competitor with a stronger online reputation, even when you're objectively better.</p>
+      </div>
+      <div class="problem-card">
+        <div class="leak-num">Leak #3 · Website</div>
+        <h4>Your website doesn't convert visitors into calls</h4>
+        <p>Most PM sites score under 50% on our conversion quiz. You're paying for traffic that leaks straight through to the competition. The site looks fine. It just isn't doing the job.</p>
+      </div>
+      <div class="problem-card">
+        <div class="leak-num">Leak #4 · Pricing</div>
+        <h4>A flat 10% fee leaves money on the table</h4>
+        <p>One-size-fits-all pricing attracts the cheapest, most price-sensitive owners and underprices what your service is actually worth. Different buyer types need different price points.</p>
+      </div>
+      <div class="problem-card">
+        <div class="leak-num">Leak #5 · Purpose</div>
+        <h4>Prospects can't tell why you do this</h4>
+        <p>Without a clear "why," prospects assume you're just trying to squeeze fees out of them. They pick the company that seems more trustworthy, even when you genuinely care more.</p>
+      </div>
+      <div class="problem-card">
+        <div class="leak-num">Leak #6 · Sales Pitch</div>
+        <h4>You're winging the sales conversation</h4>
+        <p>No real process. No follow-up rhythm. You hear yourself say "I'll get back to you" and then watch another prospect ghost. It isn't your service that's the problem. It's the pitch.</p>
+      </div>
+    </div>
+    <p style="text-align: center; max-width: 720px; margin: 32px auto 0; color: var(--gray-700); font-size: 16px; line-height: 1.65;">Most PMs we talk to say "I had no idea these were costing me deals." That's the point. You can't fix a leak you can't see. Our Rapid Revamp™ identifies and seals all six in your first 90 days, so you stop losing the leads you're already getting.</p>
+  </div>
+</section>
+
+<!-- === Differentiators: 6 cards === -->
+<section id="how-it-works" class="diff-section">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 40px;">
+      <div class="section-eyebrow">What you actually get</div>
+      <h2 class="section-title">In-person first. Online between trips.</h2>
+      <p class="section-lead" style="margin: 0 auto;">You're not buying a course. You're buying a seat in a room that makes it harder to stay small. Here's the breakdown.</p>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <div class="diff-number">1</div>
+        <h3>3 Austin Intensives a year</h3>
+        <p>Two days each, capped to protect the room. Hot seats, work sprints, 90-day plan builds, peer accountability pairings. Typical rhythm: February, May, and September/October near DoorGrow Live. We avoid mid-summer because that's peak leasing season.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-number">2</div>
+        <h3>Your Jumpstart with Jason and Sarah</h3>
+        <p>Your first trip is a 1-on-1 in Austin. Jason and Sarah dig into your pricing, costs, and low-hanging fruit. The goal is to find quick profit wins that offset your investment before you ever attend an Intensive. Jumpstarts run monthly.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-number">3</div>
+        <h3>Weekly coaching, four tracks</h3>
+        <p>Rapid Revamp sessions seal trust leaks. Growth Engine sessions install organic acquisition systems. Scale Operations sessions solve hiring and process problems. Co-Grow sessions are body-doubling for getting calls done.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-number">4</div>
+        <h3>The 7 Growth Engines (no paid ads)</h3>
+        <p>Realtor Intros, the Neighbor Strategy, Vendor Intros, the Online Reviews Engine, the Product Research Interview Engine, plus more. Organic systems that capture the majority of owners who aren't searching online. This is where Kent Hardman went from 0 to 105 doors in 6 months.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-number">5</div>
+        <h3>An accountability partner who flies to Austin too</h3>
+        <p>You're paired with another serious operator. Weekly check-ins. Wins celebrated. Goals defended. Many members say their partner becomes one of their most valuable business relationships. Those bonds form in person.</p>
+      </div>
+      <div class="diff-card">
+        <div class="diff-number">6</div>
+        <h3>DoorGrow Live + a plus-one for your team</h3>
+        <p>Your membership includes our annual conference at Kalahari (Round Rock, TX). Bring your operations manager or business partner to everything at no extra charge. Two of you working ON the business gets twice as much done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === Door Math Calculator === -->
+<section id="door-math" class="calc-section">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <div class="section-eyebrow">The Math</div>
+      <h2 class="section-title">Run your own door math</h2>
+      <p class="section-lead" style="margin: 0 auto;">Plug in your average rent, fee structure, and how many doors you'd realistically add. We'll show you the new monthly revenue, the leasing fees, and how fast you'd be cash-positive on the program.</p>
+    </div>
+
+    <div class="calc-wrap">
+      <div class="calc-grid">
+        <div class="calc-explainer">
+          <h3>Why most of our clients are cash-positive at 10 doors</h3>
+          <p>The membership runs $1,100/month. Add 10 doors at $150/door and you're at $1,500/month in new recurring revenue, plus leasing fees on whatever vacancies you fill.</p>
+          <p>The leasing fees alone from the first wave usually cover the first 3 months of membership. After that, recurring fees pay the bill and compound every month you keep adding.</p>
+          <p style="font-weight: 600; opacity: 1;">It isn't a cost. It's a money printer once the engines are turning.</p>
+          <ul class="calc-bullets">
+            <li><strong>Real numbers</strong>Kent Hardman: 0 to 105 doors in 6 months. At $150/door, that's $15,750/month in new recurring revenue.</li>
+            <li><strong>Real lifetime value</strong>Industry average client retention is 5+ years. Do the math on a single door.</li>
+            <li><strong>Real timeline</strong>Most clients hit cash-positive inside their first 90 days.</li>
+          </ul>
+        </div>
+
+        <div class="calc-form-side">
+          <div id="calc-form-view">
+            <h3>Your door math</h3>
+            <p class="calc-sub">No spam. We use this to text you the calculation and a short note about whether the program seems like a fit.</p>
+            <form id="calc-form" class="calc-form" autocomplete="on">
+              <div class="calc-row">
+                <div class="calc-field">
+                  <label for="calc-rent">Avg Rent ($)</label>
+                  <input type="number" id="calc-rent" name="rent" placeholder="1500" min="100" required>
+                </div>
+                <div class="calc-field">
+                  <label for="calc-fee">Mgmt Fee (%)</label>
+                  <input type="number" id="calc-fee" name="fee" placeholder="10" min="1" max="50" step="0.1" required>
+                </div>
+              </div>
+              <div class="calc-field">
+                <label for="calc-doors">Doors You'd Realistically Add (next 12 months)</label>
+                <input type="number" id="calc-doors" name="doors" placeholder="30" min="1" required>
+              </div>
+              <div class="calc-field">
+                <label for="calc-name">Your Name</label>
+                <input type="text" id="calc-name" name="name" placeholder="First last" required autocomplete="name">
+              </div>
+              <div class="calc-field">
+                <label for="calc-email">Email</label>
+                <input type="email" id="calc-email" name="email" placeholder="you@yourpmco.com" required autocomplete="email">
+              </div>
+              <div class="calc-field">
+                <label for="calc-phone">Phone (optional)</label>
+                <input type="tel" id="calc-phone" name="phone" placeholder="(555) 555-5555" autocomplete="tel">
+              </div>
+              <button type="submit" class="calc-submit" id="calc-submit">
+                <span class="calc-submit-text">Calculate My Numbers</span>
+              </button>
+              <p id="calc-error" class="calc-error"></p>
+            </form>
+          </div>
+
+          <div id="calc-results-view" class="calc-results">
+            <div class="calc-result-card">
+              <div class="calc-result-label">New Annual Recurring Revenue</div>
+              <div class="calc-result-num" id="calc-arr">$0</div>
+              <span style="font-size: 13px; color: var(--gray-500);">From the doors you said you'd add</span>
+            </div>
+            <div class="calc-metrics">
+              <div class="calc-metric">
+                <div class="calc-metric-num" id="calc-mrr">$0</div>
+                <div class="calc-metric-lbl">New MRR</div>
+              </div>
+              <div class="calc-metric">
+                <div class="calc-metric-num" id="calc-leasing">$0</div>
+                <div class="calc-metric-lbl">Leasing fees (est)</div>
+              </div>
+              <div class="calc-metric">
+                <div class="calc-metric-num" id="calc-payback">0 mo</div>
+                <div class="calc-metric-lbl">Payback period</div>
+              </div>
+            </div>
+            <div class="calc-interp" id="calc-interp"></div>
+            <a href="sms:+15126402092?body=GrowthAccelerator" class="calc-cta">Text Jason to talk through your numbers →</a>
+            <button type="button" class="calc-reset" id="calc-reset">Run different numbers</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === Comparison === -->
+<section class="compare-section tight">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <div class="section-eyebrow">Your alternatives</div>
+      <h2 class="section-title">Online program vs. industry conference vs. this</h2>
+      <p class="section-lead" style="margin: 0 auto; text-align: center;">Most PM owners have tried at least one of these. Here's the honest comparison.</p>
+    </div>
+    <div class="compare-table">
+      <div class="compare-row header">
+        <div class="compare-category"></div>
+        <div class="compare-cell">Online Course or Program</div>
+        <div class="compare-cell">Industry Conference (NARPM, etc.)</div>
+        <div class="compare-cell highlight-col">Growth Accelerator Mastermind</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-category">In-person time with other PM owners</div>
+        <div class="compare-cell" data-label="Online">None</div>
+        <div class="compare-cell" data-label="Conference">Once a year</div>
+        <div class="compare-cell highlight-col" data-label="DoorGrow">3 Intensives + DoorGrow Live</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-category">Weekly coaching between events</div>
+        <div class="compare-cell" data-label="Online">No</div>
+        <div class="compare-cell" data-label="Conference">No</div>
+        <div class="compare-cell highlight-col" data-label="DoorGrow">4 weekly tracks</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-category">Accountability partner who knows your business</div>
+        <div class="compare-cell" data-label="Online">No</div>
+        <div class="compare-cell" data-label="Conference">No</div>
+        <div class="compare-cell highlight-col" data-label="DoorGrow">Yes, paired in-person</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-category">Built only for property managers</div>
+        <div class="compare-cell" data-label="Online">Sometimes</div>
+        <div class="compare-cell" data-label="Conference">Yes</div>
+        <div class="compare-cell highlight-col" data-label="DoorGrow">Exclusively</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-category">Fixes your trust leaks (branding, pricing, sales)</div>
+        <div class="compare-cell" data-label="Online">Maybe a module</div>
+        <div class="compare-cell" data-label="Conference">No</div>
+        <div class="compare-cell highlight-col" data-label="DoorGrow">Rapid Revamp in 90 days</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-category">Plus-one for your operations manager</div>
+        <div class="compare-cell" data-label="Online">Pay again</div>
+        <div class="compare-cell" data-label="Conference">Pay again</div>
+        <div class="compare-cell highlight-col" data-label="DoorGrow">Included</div>
+      </div>
+      <div class="compare-row">
+        <div class="compare-category">Direct DM access to coaches</div>
+        <div class="compare-cell" data-label="Online">Forum, maybe</div>
+        <div class="compare-cell" data-label="Conference">No</div>
+        <div class="compare-cell highlight-col" data-label="DoorGrow">Voice/text anytime</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === Pricing === -->
+<section id="pricing" class="pricing-section">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 40px;">
+      <div class="section-eyebrow">Investment</div>
+      <h2 class="section-title">$4,000 launch + $1,100/month</h2>
+      <p class="section-lead" style="margin: 0 auto;">Most clients offset the full cost after adding 10 doors. The leasing fees from your first wave of placements usually cover the first 3 months of membership.</p>
+    </div>
+
+    <div class="pricing-single">
+      <div class="pricing-card">
+        <div class="pricing-tag">Month to Month</div>
+        <div class="pricing-name">Growth Accelerator Mastermind</div>
+        <div class="pricing-headline">Your seat in the room. Plus everything between.</div>
+        <div class="pricing-tagline">In-person first. Online between trips. We didn't build this to be passive, so don't expect to be a spectator.</div>
+
+        <div class="pricing-amounts">
+          <div>
+            <div class="pricing-amount">$4,000<span class="pricing-period"> launch</span></div>
+            <div class="pricing-launch">One-time. Includes Jumpstart in Austin, kickoff with Jason, and 4 onboarding sessions with your Client Success Coach.</div>
+          </div>
+          <div>
+            <div class="pricing-amount">$1,100<span class="pricing-period">/month</span></div>
+            <div class="pricing-launch">Month-to-month. Cancel anytime.</div>
+          </div>
+        </div>
+
+        <div class="pricing-divider"></div>
+
+        <div class="pricing-section-label">In-person events (3 a year + DoorGrow Live)</div>
+        <ul class="pricing-features">
+          <li>3 two-day Austin Intensives per year (themed by what the room needs)</li>
+          <li>Annual DoorGrow Live conference at Kalahari, Round Rock TX</li>
+          <li>Your Jumpstart Session in Austin with Jason and Sarah</li>
+        </ul>
+
+        <div class="pricing-section-label">Weekly coaching (4 tracks)</div>
+        <ul class="pricing-features">
+          <li>Rapid Revamp™ sessions: seal the 6 trust leaks</li>
+          <li>Growth Engine Activation: install Realtor Intros, Neighbor Strategy, Vendor Intros, and more</li>
+          <li>Scale Operations: hiring, accountability, planning, processes</li>
+          <li>Co-Grow body-doubling sessions: make calls alongside other operators</li>
+        </ul>
+
+        <div class="pricing-section-label">Community + accountability</div>
+        <ul class="pricing-features">
+          <li>DoorGrow Hub community (real-time support, topic channels, AI tools)</li>
+          <li>Accountability partner paired in person at the Intensives</li>
+          <li>Monthly Growth Challenges (like "30 Doors in 30 Days")</li>
+          <li>DM access to coaches via voice or text</li>
+          <li>Quarterly 1-on-1 strategy calls</li>
+        </ul>
+
+        <div class="pricing-section-label">Library, software, and team access</div>
+        <ul class="pricing-features">
+          <li>DoorGrow Academy library: every framework, every step-by-step</li>
+          <li>Discounted access to DoorGrow Hiring, OS, CRM, and ROI Calculator</li>
+          <li>SeedSite professional website platform if you need one</li>
+          <li>Bring a plus-one from your team at no extra charge</li>
+        </ul>
+
+        <a href="sms:+15126402092?body=GrowthAccelerator" class="cta-primary">Text Jason: 512-640-2092</a>
+      </div>
+
+      <div class="pricing-footer">
+        <strong>Cashflow tight?</strong> We have an alternative payment plan: $1,000 × 4 months for the launch package, then $1,100/month. We'd skip most of the Rapid Revamp and brute-force growth right away. It's less effective than the optimal path, but it works if cash is the bottleneck.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === Case Studies === -->
+<section id="case-study" class="case-section">
+  <div class="container case-content">
+    <div>
+      <div class="section-eyebrow">Real Results</div>
+      <h2 class="section-title">More documented case studies than any PM coaching company</h2>
+      <p class="section-lead">127+ on the public list. Here are three from clients who fly to Austin.</p>
+    </div>
+    <div class="case-stats">
+      <div class="case-stat-card">
+        <div class="case-stat-photo">
+          <img src="https://doorgrow.com/wp-content/uploads/2025/11/Kent-Hardman.jpg" alt="Kent Hardman" loading="lazy">
+        </div>
+        <div class="case-stat-number">0 → 105</div>
+        <div class="case-stat-name">Kent Hardman</div>
+        <div class="case-stat-detail">Doors added in 6 months. 1-2 hours/day on sales while running his business full-time. No paid marketing.</div>
+      </div>
+      <div class="case-stat-card">
+        <div class="case-stat-photo">
+          <img src="https://doorgrow.com/wp-content/uploads/2022/05/JonBabiarz.jpg" alt="John Babiarz" loading="lazy">
+        </div>
+        <div class="case-stat-number">60 → 310</div>
+        <div class="case-stat-name">John Babiarz</div>
+        <div class="case-stat-detail">Doors in a single year, just from intros with 5-6 real estate agents using the Realtor Intro Engine.</div>
+      </div>
+      <div class="case-stat-card">
+        <div class="case-stat-photo">
+          <img src="https://doorgrow.com/wp-content/uploads/2025/11/Michael-Sullivan.jpg" alt="Michael Sullivan" loading="lazy">
+        </div>
+        <div class="case-stat-number">135 → 275</div>
+        <div class="case-stat-name">Michael Sullivan</div>
+        <div class="case-stat-detail">Doors. Hit 50% profit margin while doubling his book. Pricing rebuild was the unlock.</div>
+      </div>
+    </div>
+    <div class="case-quote">
+      "I was exactly where you are eight months ago." That's the conversation that happens at the dinner the night before an Intensive. It isn't a session on stage. It's an owner pulling you aside and telling you what changed for them. You can't get that on a Zoom call.
+      <footer>What members say after their first Intensive</footer>
+    </div>
+    <div class="case-extras">
+      <div class="case-extra">
+        <strong>Jeff Garner</strong>
+        <p>150 to 420+ doors in 4 months (including a 250-door acquisition). Broke through to 1,000+ after rebuilding his team with DoorGrow Hiring.</p>
+      </div>
+      <div class="case-extra">
+        <strong>The McGrews</strong>
+        <p>47 to 275+ doors (5x growth) after revamping pricing and firing their worst clients.</p>
+      </div>
+      <div class="case-extra">
+        <strong>Foundation Property Management</strong>
+        <p>Added 563 doors in 2 years and broke the 1,000-door barrier.</p>
+      </div>
+      <div class="case-extra">
+        <strong>Darus Trutna</strong>
+        <p>Already at 1,000+ doors. Added 300 more in one year while in the program.</p>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 32px;">
+      <a href="https://drgrw.com/casestudies" style="color: var(--green); font-weight: 700; font-size: 16px; text-decoration: none;">See all 127+ case studies →</a>
+    </p>
+  </div>
+</section>
+
+<!-- === Who This Is / Isn't For === -->
+<section style="background: #fff;">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 24px;">
+      <div class="section-eyebrow">Honest filter</div>
+      <h2 class="section-title">Who this is and isn't for</h2>
+      <p class="section-lead" style="margin: 0 auto;">We'd rather you self-select out than join and ghost us.</p>
+    </div>
+    <div class="who-grid">
+      <div class="who-card fit">
+        <h4>This is for you if</h4>
+        <ul>
+          <li>You'll get on a plane 3 times a year. The room is the program.</li>
+          <li>You can carve out roughly 15 hours a week to work ON the business.</li>
+          <li>You're somewhere between a few doors and 200+ and you want to grow organically.</li>
+          <li>You'll actually take coaching when we tell you to fix branding or raise prices.</li>
+          <li>You want a peer group, not a content library.</li>
+        </ul>
+      </div>
+      <div class="who-card unfit">
+        <h4>This isn't for you if</h4>
+        <ul>
+          <li>You want to watch replays from your couch. There aren't replays for relationships.</li>
+          <li>You're already at 200+ doors and the bottleneck is operations, not doors. Ask about Super System instead.</li>
+          <li>You want a guarantee that you'll add X doors in Y days. We don't sell those, and we explain why below.</li>
+          <li>You want set-it-and-forget-it. This is a partnership, not a subscription you forget about.</li>
+          <li>You're not willing to be coached when we tell you something hard.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === Roadmap === -->
+<section class="roadmap-section">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 24px;">
+      <div class="section-eyebrow">The DoorGrow Ecosystem</div>
+      <h2 class="section-title">Where Growth Accelerator fits in the bigger picture</h2>
+      <p class="section-lead" style="margin: 0 auto;">Most clients stay here until they cross 200 doors and the problem shifts from "I need more doors" to "I need better systems."</p>
+    </div>
+    <div class="roadmap-steps">
+      <div class="roadmap-step current">
+        <div class="step-num">Step 1 · You are here</div>
+        <h4>Growth Accelerator</h4>
+        <p>Fix trust leaks. Install the 7 Growth Engines. Add doors. Stay until you're past 200.</p>
+      </div>
+      <div class="roadmap-step">
+        <div class="step-num">Step 2</div>
+        <h4>Super System</h4>
+        <p>200+ doors with a team but stuck in operations? Install the people, planning, and process systems.</p>
+      </div>
+      <div class="roadmap-step">
+        <div class="step-num">Step 3</div>
+        <h4>Door Machine</h4>
+        <p>We assign a trained BDM to your account. They add 100-300 doors a year while you focus on operations.</p>
+      </div>
+      <div class="roadmap-step">
+        <div class="step-num">Step 4</div>
+        <h4>DoorGrow Boardroom</h4>
+        <p>Invite-only. 300+ doors and 25%+ margins, building toward 1,000+ doors or a strategic exit. $100K/year.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- === FAQ === -->
+<section id="faq" class="faq-section">
+  <div class="container-narrow">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <div class="section-eyebrow">FAQ</div>
+      <h2 class="section-title">Honest answers to questions we hear most</h2>
+    </div>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>Do I really have to fly to Austin?</summary>
+        <div class="faq-body">
+          <p>Yes. That's kind of the whole point. The Mastermind is in-person. The weekly calls and community exist to support you between trips, but the breakthroughs happen in the room. If you're not willing to travel, this isn't the right program. We have other options that might fit better, like our online programs.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Why don't you offer a guarantee?</summary>
+        <div class="faq-body">
+          <p>After working with 1,200+ PM businesses, we noticed something: the people who demand guarantees rarely do the work. The people who do the work don't need them.</p>
+          <p>What we do offer: month-to-month with no annual contract. If it isn't working for you, you leave. We're confident enough in the residual ROI that we don't need to lock you in. Most clients stay for years because they keep getting results.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What if I can't make every Intensive?</summary>
+        <div class="faq-body">
+          <p>Life happens. We get it. The goal is all three a year, but missing one occasionally won't get you kicked out. That said, if you're joining with the mindset of "I'll just watch the replays," this isn't the right program. There aren't replays for relationships.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How is this different from NARPM events?</summary>
+        <div class="faq-body">
+          <p>NARPM is great for industry-wide networking. It doesn't come with weekly coaching, an accountability partner, support between events, or someone checking in on whether you actually executed. We do all of that, and we do it with PMs who are serious about growth.</p>
+          <p>The other big thing: NARPM is once a year. We're three Intensives plus weekly coaching. The compounding is what changes outcomes.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>I've tried coaching and it didn't work. Why would this be different?</summary>
+        <div class="faq-body">
+          <p>Three things usually break coaching: it's generic (not built for PM), there's no accountability system, and there's no peer community pushing you forward. We solve all three. Our coaching is PM-only. Your accountability partner checks in weekly. The Intensives create relationships that keep you engaged long after the event.</p>
+          <p>If you've tried coaching and it didn't work, that's probably the diagnosis. It's worth asking before you write off coaching entirely.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>I'm just starting out. Is this for me?</summary>
+        <div class="faq-body">
+          <p>Growth Accelerator works at all stages, from startup to 200+ doors. If you're under 20 doors and cash is tight, ask us about other options that might be a better starting point. But if you can make the investment and you're serious, this'll get you to 100+ doors faster than anything else you could do alone. Kent Hardman started at 0.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is this month-to-month or am I locked in?</summary>
+        <div class="faq-body">
+          <p>Month-to-month. No annual contract. We're confident enough in the ROI that we don't need to lock you in. Most clients stay for years because they keep getting results, not because they're stuck in an agreement.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I bring a team member?</summary>
+        <div class="faq-body">
+          <p>Yes. Your membership includes a plus-one at no extra charge. Bring them to the calls. Bring them to the Intensives. Many of our most successful clients bring their operations manager or business partner. It means you get twice as much done and you stop being the only one in your company who speaks DoorGrow.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What's the difference between Growth Accelerator and Super System?</summary>
+        <div class="faq-body">
+          <p>Growth Accelerator is for adding doors. If your problem is "I need more doors," you're here. Super System is for owners past 200 doors who feel trapped in operations. If your problem is "I have doors but the business is running me," ask about Super System instead.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- === Final CTA === -->
+<section class="final-cta">
+  <div class="final-cta-content">
+    <h2>The slowest path to growth is doing it alone.</h2>
+    <p>Text Jason. Tell him you're ready to collapse time, skip the guesswork, and finally take action that works. He personally reviews every growth plan, so the reply you get is from him, not a sales team.</p>
+    <div class="hero-ctas">
+      <a href="sms:+15126402092?body=GrowthAccelerator" class="cta-primary">Text Jason: 512-640-2092</a>
+      <a href="https://drgrw.com/clarity" class="cta-secondary">Take the free Clarity Assessment</a>
+    </div>
+    <div class="hero-microcopy">Not sure yet? The Clarity Assessment is free and takes about 10 minutes. It'll tell you whether your bottleneck is leads, leaks, or operations.</div>
+  </div>
+</section>
+<div class="stripe"></div>
+
+<section class="signature">
+  <div class="signature-photo">
+    <img src="https://doorgrow.com/wp-content/uploads/2024/04/JasonSarahHull.png" alt="Jason and Sarah Hull">
+  </div>
+  <div class="signature-text">"The biggest shifts don't happen on a Zoom call. They happen when you're sitting across the table from someone who's been where you are. That's the room we built."</div>
+  <div style="margin-top: 24px;"></div>
+  <div class="signature-text">To our mutual growth,</div>
+  <div class="signature-names">Jason &amp; Sarah Hull</div>
+  <div class="signature-title">Owners, DoorGrow</div>
+</section>
+
+<footer class="footer">
+  <div class="footer-logo">Door<span>Grow</span></div>
+  <div>The world leader in growing residential property management companies.</div>
+  <div style="margin-top: 12px;">
+    <a href="https://doorgrow.com">doorgrow.com</a> · <a href="sms:+15126402092">Text Jason: 512-640-2092</a> · <a href="https://drgrw.com/casestudies">127+ Case Studies</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+  const form = document.getElementById('calc-form');
+  const submitBtn = document.getElementById('calc-submit');
+  const submitText = submitBtn.querySelector('.calc-submit-text');
+  const errEl = document.getElementById('calc-error');
+  const formView = document.getElementById('calc-form-view');
+  const resultsView = document.getElementById('calc-results-view');
+  const resetBtn = document.getElementById('calc-reset');
+
+  function showError(msg) {
+    errEl.textContent = msg;
+    errEl.style.display = 'block';
+  }
+
+  function clearError() {
+    errEl.textContent = '';
+    errEl.style.display = 'none';
+  }
+
+  function fmtMoney(n) {
+    return '$' + Math.round(n).toLocaleString();
+  }
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    clearError();
+
+    const data = {
+      rent: parseFloat(document.getElementById('calc-rent').value),
+      fee: parseFloat(document.getElementById('calc-fee').value),
+      doors: parseInt(document.getElementById('calc-doors').value, 10),
+      name: document.getElementById('calc-name').value.trim(),
+      email: document.getElementById('calc-email').value.trim(),
+      phone: document.getElementById('calc-phone').value.trim(),
+    };
+
+    if (!data.rent || !data.fee || !data.doors || !data.name || !data.email) {
+      showError('Please fill in rent, fee, doors, name, and email.');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitText.textContent = 'Calculating…';
+
+    try {
+      const res = await fetch('/api/door-math', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+
+      if (!res.ok || !result.success) {
+        throw new Error(result.error || 'Could not calculate. Try again in a moment.');
+      }
+
+      document.getElementById('calc-arr').textContent = fmtMoney(result.annual_revenue);
+      document.getElementById('calc-mrr').textContent = fmtMoney(result.monthly_revenue);
+      document.getElementById('calc-leasing').textContent = fmtMoney(result.leasing_revenue);
+      document.getElementById('calc-payback').textContent = result.payback_months + ' mo';
+      document.getElementById('calc-interp').textContent = result.interpretation;
+
+      formView.style.display = 'none';
+      resultsView.style.display = 'block';
+    } catch (err) {
+      showError(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      submitBtn.disabled = false;
+      submitText.textContent = 'Calculate My Numbers';
+    }
+  });
+
+  resetBtn.addEventListener('click', function() {
+    form.reset();
+    clearError();
+    resultsView.style.display = 'none';
+    formView.style.display = 'block';
+  });
+})();
+</script>
+
+</body>
+</html>
