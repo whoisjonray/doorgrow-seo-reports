@@ -411,8 +411,8 @@
           <p class="calc-sub">Slide the dials. The numbers update live. No signup, no email. Just play with it.</p>
           <div class="calc-form">
             <div class="calc-field">
-              <label for="calc-doors">Doors added per month <span class="calc-value" id="calc-doors-val">15</span></label>
-              <input type="range" id="calc-doors" class="calc-slider" min="5" max="40" step="1" value="15">
+              <label for="calc-doors">Doors added per month <span class="calc-value" id="calc-doors-val">10 doors</span></label>
+              <input type="range" id="calc-doors" class="calc-slider" min="5" max="40" step="1" value="10">
               <div class="calc-slider-ticks"><span>5</span><span>15</span><span>25</span><span>40</span></div>
               <div class="calc-help">Most clients who actually run our systems add 10-20 doors a month. Kent Hardman averaged ~17/month.</div>
             </div>
@@ -427,9 +427,9 @@
             <div class="calc-field">
               <label for="calc-rent">Average rent in your market</label>
               <div class="calc-rent-prefix">
-                <input type="number" id="calc-rent" inputmode="numeric" placeholder="type your number, e.g. 1500" min="100">
+                <input type="number" id="calc-rent" inputmode="numeric" placeholder="e.g. 1500" min="100" value="1500">
               </div>
-              <div class="calc-help">No default. Type the average monthly rent for the kind of property you'd manage.</div>
+              <div class="calc-help">Pre-filled at $1,500. Type your real market average to update the math.</div>
             </div>
 
             <div class="calc-divider"></div>
@@ -440,7 +440,7 @@
                 <div class="calc-result-card" style="margin-bottom: 16px;">
                   <div class="calc-result-label">New annual recurring revenue</div>
                   <div class="calc-result-num" id="calc-arr">$0</div>
-                  <span style="font-size: 13px; color: var(--gray-500);">From <span id="calc-arr-doors">15</span> doors a month for 12 months</span>
+                  <span style="font-size: 13px; color: var(--gray-500);">From <span id="calc-arr-doors">10</span> doors a month for 12 months</span>
                 </div>
                 <div class="calc-metrics" style="margin-bottom: 16px;">
                   <div class="calc-metric">
