@@ -106,28 +106,33 @@
   .calc-form-side { padding: 40px; }
   .calc-form-side h3 { font-size: 22px; font-weight: 800; color: var(--navy); margin-bottom: 8px; letter-spacing: -0.25px; }
   .calc-form-side .calc-sub { font-size: 14px; color: var(--gray-500); margin-bottom: 24px; }
-  .calc-form { display: flex; flex-direction: column; gap: 14px; }
-  .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  @media (max-width: 500px) { .calc-row { grid-template-columns: 1fr; } }
-  .calc-field label { display: block; font-size: 13px; font-weight: 700; color: var(--gray-700); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .calc-field input { width: 100%; padding: 12px 14px; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 15px; font-family: var(--font-sans); transition: border 0.15s, box-shadow 0.15s; }
-  .calc-field input:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(75, 209, 55, 0.15); }
-  .calc-submit { background: var(--green); color: #fff; padding: 14px 24px; border-radius: 8px; font-weight: 700; font-size: 15px; border: none; cursor: pointer; margin-top: 6px; transition: transform 0.15s, box-shadow 0.15s; }
-  .calc-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(75, 209, 55, 0.4); }
-  .calc-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; box-shadow: none; }
-  .calc-error { color: var(--red); font-size: 14px; margin-top: 6px; display: none; }
-  .calc-results { display: none; }
-  .calc-result-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 24px; text-align: center; margin-bottom: 16px; }
+  .calc-form { display: flex; flex-direction: column; gap: 18px; }
+  .calc-field label { display: flex; justify-content: space-between; align-items: baseline; font-size: 13px; font-weight: 700; color: var(--gray-700); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; gap: 12px; }
+  .calc-field label .calc-value { font-size: 18px; font-weight: 800; color: var(--green-dark); text-transform: none; letter-spacing: -0.25px; font-variant-numeric: tabular-nums; }
+  .calc-field .calc-help { font-size: 12px; color: var(--gray-500); margin-top: 6px; font-weight: 500; line-height: 1.4; }
+  .calc-field input[type="number"], .calc-field input[type="text"] { width: 100%; padding: 14px 16px; border: 1px solid var(--gray-300); border-radius: 8px; font-size: 16px; font-family: var(--font-sans); transition: border 0.15s, box-shadow 0.15s; }
+  .calc-field input[type="number"]:focus, .calc-field input[type="text"]:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(75, 209, 55, 0.15); }
+  .calc-field input::placeholder { color: var(--gray-300); font-style: italic; font-weight: 400; }
+  .calc-rent-prefix { position: relative; }
+  .calc-rent-prefix::before { content: '$'; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--gray-500); font-weight: 700; font-size: 16px; pointer-events: none; }
+  .calc-rent-prefix input { padding-left: 28px !important; }
+  .calc-slider { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; border-radius: 4px; background: var(--gray-200); outline: none; cursor: pointer; }
+  .calc-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 24px; height: 24px; border-radius: 50%; background: var(--green); cursor: pointer; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(75, 209, 55, 0.4); transition: transform 0.1s; }
+  .calc-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+  .calc-slider::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: var(--green); cursor: pointer; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(75, 209, 55, 0.4); }
+  .calc-slider-ticks { display: flex; justify-content: space-between; font-size: 11px; color: var(--gray-500); margin-top: 6px; font-weight: 600; }
+  .calc-divider { height: 1px; background: var(--gray-200); margin: 8px 0 4px; }
+  .calc-result-card { background: linear-gradient(135deg, var(--green-light) 0%, #fff 100%); border: 2px solid var(--green); border-radius: var(--radius); padding: 24px; text-align: center; }
   .calc-result-label { font-size: 11px; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: 1.5px; }
-  .calc-result-num { font-size: 44px; font-weight: 800; color: var(--green-dark); line-height: 1; margin: 8px 0; letter-spacing: -1px; }
-  .calc-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
-  .calc-metric { background: var(--gray-50); border-radius: 8px; padding: 12px 8px; text-align: center; border: 1px solid var(--gray-200); }
-  .calc-metric-num { font-size: 18px; font-weight: 800; color: var(--navy); line-height: 1.2; }
+  .calc-result-num { font-size: 44px; font-weight: 800; color: var(--green-dark); line-height: 1; margin: 8px 0; letter-spacing: -1px; font-variant-numeric: tabular-nums; }
+  .calc-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .calc-metric { background: var(--gray-50); border-radius: 8px; padding: 14px 8px; text-align: center; border: 1px solid var(--gray-200); }
+  .calc-metric-num { font-size: 20px; font-weight: 800; color: var(--navy); line-height: 1.2; font-variant-numeric: tabular-nums; }
   .calc-metric-lbl { font-size: 10px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
-  .calc-interp { background: var(--green-light); border-left: 4px solid var(--green); border-radius: 8px; padding: 14px 16px; font-size: 14px; line-height: 1.55; color: var(--gray-900); margin-bottom: 16px; }
-  .calc-cta { display: block; text-align: center; background: var(--navy); color: #fff !important; padding: 14px 24px; border-radius: 8px; font-weight: 700; font-size: 15px; text-decoration: none; transition: transform 0.15s; }
-  .calc-cta:hover { transform: translateY(-1px); }
-  .calc-reset { display: block; text-align: center; background: transparent; color: var(--gray-500); padding: 8px; font-size: 13px; border: none; cursor: pointer; margin-top: 8px; text-decoration: underline; width: 100%; }
+  .calc-interp { background: rgba(2, 31, 66, 0.04); border-left: 4px solid var(--navy); border-radius: 8px; padding: 14px 16px; font-size: 14px; line-height: 1.55; color: var(--gray-900); }
+  .calc-cta { display: block; text-align: center; background: var(--green); color: #fff !important; padding: 16px 24px; border-radius: 8px; font-weight: 700; font-size: 16px; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; box-shadow: 0 4px 16px rgba(75, 209, 55, 0.3); }
+  .calc-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(75, 209, 55, 0.45); }
+  .calc-empty { background: var(--gray-50); border: 1px dashed var(--gray-300); border-radius: 8px; padding: 20px; text-align: center; color: var(--gray-500); font-size: 14px; }
 
   .compare-section { background: linear-gradient(180deg, var(--gray-50) 0%, #fff 100%); }
   .compare-table { background: #fff; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
@@ -384,7 +389,7 @@
     <div style="text-align: center; margin-bottom: 32px;">
       <div class="section-eyebrow">The Math</div>
       <h2 class="section-title">Run your own door math</h2>
-      <p class="section-lead" style="margin: 0 auto;">Plug in your average rent, fee structure, and how many doors you'd realistically add. We'll show you the new monthly revenue, the leasing fees, and how fast you'd be cash-positive on the program.</p>
+      <p class="section-lead" style="margin: 0 auto;">Most clients who actually run our systems add 10-20 doors a month. Slide the dials below to see what that looks like for your market. No signup. Just play with the numbers.</p>
     </div>
 
     <div class="calc-wrap">
@@ -402,66 +407,59 @@
         </div>
 
         <div class="calc-form-side">
-          <div id="calc-form-view">
-            <h3>Your door math</h3>
-            <p class="calc-sub">No spam. We use this to text you the calculation and a short note about whether the program seems like a fit.</p>
-            <form id="calc-form" class="calc-form" autocomplete="on">
-              <div class="calc-row">
-                <div class="calc-field">
-                  <label for="calc-rent">Avg Rent ($)</label>
-                  <input type="number" id="calc-rent" name="rent" placeholder="1500" min="100" required>
-                </div>
-                <div class="calc-field">
-                  <label for="calc-fee">Mgmt Fee (%)</label>
-                  <input type="number" id="calc-fee" name="fee" placeholder="10" min="1" max="50" step="0.1" required>
-                </div>
-              </div>
-              <div class="calc-field">
-                <label for="calc-doors">Doors You'd Realistically Add (next 12 months)</label>
-                <input type="number" id="calc-doors" name="doors" placeholder="30" min="1" required>
-              </div>
-              <div class="calc-field">
-                <label for="calc-name">Your Name</label>
-                <input type="text" id="calc-name" name="name" placeholder="First last" required autocomplete="name">
-              </div>
-              <div class="calc-field">
-                <label for="calc-email">Email</label>
-                <input type="email" id="calc-email" name="email" placeholder="you@yourpmco.com" required autocomplete="email">
-              </div>
-              <div class="calc-field">
-                <label for="calc-phone">Phone (optional)</label>
-                <input type="tel" id="calc-phone" name="phone" placeholder="(555) 555-5555" autocomplete="tel">
-              </div>
-              <button type="submit" class="calc-submit" id="calc-submit">
-                <span class="calc-submit-text">Calculate My Numbers</span>
-              </button>
-              <p id="calc-error" class="calc-error"></p>
-            </form>
-          </div>
+          <h3>Your door math</h3>
+          <p class="calc-sub">Slide the dials. The numbers update live. No signup, no email. Just play with it.</p>
+          <div class="calc-form">
+            <div class="calc-field">
+              <label for="calc-doors">Doors added per month <span class="calc-value" id="calc-doors-val">15</span></label>
+              <input type="range" id="calc-doors" class="calc-slider" min="5" max="40" step="1" value="15">
+              <div class="calc-slider-ticks"><span>5</span><span>15</span><span>25</span><span>40</span></div>
+              <div class="calc-help">Most clients who actually run our systems add 10-20 doors a month. Kent Hardman averaged ~17/month.</div>
+            </div>
 
-          <div id="calc-results-view" class="calc-results">
-            <div class="calc-result-card">
-              <div class="calc-result-label">New Annual Recurring Revenue</div>
-              <div class="calc-result-num" id="calc-arr">$0</div>
-              <span style="font-size: 13px; color: var(--gray-500);">From the doors you said you'd add</span>
+            <div class="calc-field">
+              <label for="calc-fee">Management fee <span class="calc-value" id="calc-fee-val">10%</span></label>
+              <input type="range" id="calc-fee" class="calc-slider" min="8" max="14" step="0.5" value="10">
+              <div class="calc-slider-ticks"><span>8%</span><span>10%</span><span>12%</span><span>14%</span></div>
+              <div class="calc-help">Most PMs charge a flat 10%. Our pricing rebuild usually moves clients to a tiered model that nets 11-14%.</div>
             </div>
-            <div class="calc-metrics">
-              <div class="calc-metric">
-                <div class="calc-metric-num" id="calc-mrr">$0</div>
-                <div class="calc-metric-lbl">New MRR</div>
+
+            <div class="calc-field">
+              <label for="calc-rent">Average rent in your market</label>
+              <div class="calc-rent-prefix">
+                <input type="number" id="calc-rent" inputmode="numeric" placeholder="type your number, e.g. 1500" min="100">
               </div>
-              <div class="calc-metric">
-                <div class="calc-metric-num" id="calc-leasing">$0</div>
-                <div class="calc-metric-lbl">Leasing fees (est)</div>
-              </div>
-              <div class="calc-metric">
-                <div class="calc-metric-num" id="calc-payback">0 mo</div>
-                <div class="calc-metric-lbl">Payback period</div>
+              <div class="calc-help">No default. Type the average monthly rent for the kind of property you'd manage.</div>
+            </div>
+
+            <div class="calc-divider"></div>
+
+            <div id="calc-results-view">
+              <div class="calc-empty" id="calc-empty">↑ Enter your average rent to see the math.</div>
+              <div id="calc-numbers" style="display: none;">
+                <div class="calc-result-card" style="margin-bottom: 16px;">
+                  <div class="calc-result-label">New annual recurring revenue</div>
+                  <div class="calc-result-num" id="calc-arr">$0</div>
+                  <span style="font-size: 13px; color: var(--gray-500);">From <span id="calc-arr-doors">15</span> doors a month for 12 months</span>
+                </div>
+                <div class="calc-metrics" style="margin-bottom: 16px;">
+                  <div class="calc-metric">
+                    <div class="calc-metric-num" id="calc-mrr">$0</div>
+                    <div class="calc-metric-lbl">New MRR after 12 mo</div>
+                  </div>
+                  <div class="calc-metric">
+                    <div class="calc-metric-num" id="calc-leasing">$0</div>
+                    <div class="calc-metric-lbl">Leasing fees year 1</div>
+                  </div>
+                  <div class="calc-metric">
+                    <div class="calc-metric-num" id="calc-payback">0 mo</div>
+                    <div class="calc-metric-lbl">Payback period</div>
+                  </div>
+                </div>
+                <div class="calc-interp" id="calc-interp" style="margin-bottom: 16px;"></div>
+                <a href="sms:+15126402092?body=GrowthAccelerator" class="calc-cta">Text Jason to talk through these numbers →</a>
               </div>
             </div>
-            <div class="calc-interp" id="calc-interp"></div>
-            <a href="sms:+15126402092?body=GrowthAccelerator" class="calc-cta">Text Jason to talk through your numbers →</a>
-            <button type="button" class="calc-reset" id="calc-reset">Run different numbers</button>
           </div>
         </div>
       </div>
@@ -842,83 +840,75 @@
 
 <script>
 (function() {
-  const form = document.getElementById('calc-form');
-  const submitBtn = document.getElementById('calc-submit');
-  const submitText = submitBtn.querySelector('.calc-submit-text');
-  const errEl = document.getElementById('calc-error');
-  const formView = document.getElementById('calc-form-view');
-  const resultsView = document.getElementById('calc-results-view');
-  const resetBtn = document.getElementById('calc-reset');
+  const doorsEl = document.getElementById('calc-doors');
+  const feeEl = document.getElementById('calc-fee');
+  const rentEl = document.getElementById('calc-rent');
+  const doorsValEl = document.getElementById('calc-doors-val');
+  const feeValEl = document.getElementById('calc-fee-val');
+  const emptyEl = document.getElementById('calc-empty');
+  const numbersEl = document.getElementById('calc-numbers');
 
-  function showError(msg) {
-    errEl.textContent = msg;
-    errEl.style.display = 'block';
-  }
+  function fmtMoney(n) { return '$' + Math.round(n).toLocaleString(); }
 
-  function clearError() {
-    errEl.textContent = '';
-    errEl.style.display = 'none';
-  }
+  function recalc() {
+    const doorsPerMonth = parseInt(doorsEl.value, 10);
+    const fee = parseFloat(feeEl.value);
+    const rent = parseFloat(rentEl.value);
 
-  function fmtMoney(n) {
-    return '$' + Math.round(n).toLocaleString();
-  }
+    doorsValEl.textContent = doorsPerMonth + (doorsPerMonth === 1 ? ' door' : ' doors');
+    feeValEl.textContent = fee + '%';
 
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    clearError();
-
-    const data = {
-      rent: parseFloat(document.getElementById('calc-rent').value),
-      fee: parseFloat(document.getElementById('calc-fee').value),
-      doors: parseInt(document.getElementById('calc-doors').value, 10),
-      name: document.getElementById('calc-name').value.trim(),
-      email: document.getElementById('calc-email').value.trim(),
-      phone: document.getElementById('calc-phone').value.trim(),
-    };
-
-    if (!data.rent || !data.fee || !data.doors || !data.name || !data.email) {
-      showError('Please fill in rent, fee, doors, name, and email.');
+    if (!rent || rent < 100) {
+      emptyEl.style.display = 'block';
+      numbersEl.style.display = 'none';
       return;
     }
 
-    submitBtn.disabled = true;
-    submitText.textContent = 'Calculating…';
+    emptyEl.style.display = 'none';
+    numbersEl.style.display = 'block';
 
-    try {
-      const res = await fetch('/api/door-math', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      const result = await res.json();
-
-      if (!res.ok || !result.success) {
-        throw new Error(result.error || 'Could not calculate. Try again in a moment.');
-      }
-
-      document.getElementById('calc-arr').textContent = fmtMoney(result.annual_revenue);
-      document.getElementById('calc-mrr').textContent = fmtMoney(result.monthly_revenue);
-      document.getElementById('calc-leasing').textContent = fmtMoney(result.leasing_revenue);
-      document.getElementById('calc-payback').textContent = result.payback_months + ' mo';
-      document.getElementById('calc-interp').textContent = result.interpretation;
-
-      formView.style.display = 'none';
-      resultsView.style.display = 'block';
-    } catch (err) {
-      showError(err.message || 'Something went wrong. Please try again.');
-    } finally {
-      submitBtn.disabled = false;
-      submitText.textContent = 'Calculate My Numbers';
+    const perDoorMonthly = rent * (fee / 100);
+    // 12 months of compounding adds: month 1 = doorsPerMonth, month 2 = 2*doorsPerMonth, etc.
+    // Total revenue collected over 12 months = perDoorMonthly * doorsPerMonth * (1+2+...+12) = perDoorMonthly * doorsPerMonth * 78
+    const annualRevenue = perDoorMonthly * doorsPerMonth * 78;
+    // MRR after 12 months of adds
+    const mrrAfter12 = perDoorMonthly * doorsPerMonth * 12;
+    // Leasing fee assumption: half of new doors come with a vacancy needing a placement, fee = 50% of one month's rent
+    const leasingPerMonth = (doorsPerMonth / 2) * (rent * 0.5);
+    const leasingYear = leasingPerMonth * 12;
+    // Program cost year 1
+    const programYear1 = 4000 + (1100 * 12);
+    // Payback: how many months until cumulative new revenue + leasing covers program
+    let cumulativeRev = 0;
+    let payback = 12;
+    for (let m = 1; m <= 12; m++) {
+      cumulativeRev += (perDoorMonthly * doorsPerMonth * m) + leasingPerMonth;
+      const programSpentByMonth = 4000 + (1100 * m);
+      if (cumulativeRev >= programSpentByMonth) { payback = m; break; }
     }
-  });
 
-  resetBtn.addEventListener('click', function() {
-    form.reset();
-    clearError();
-    resultsView.style.display = 'none';
-    formView.style.display = 'block';
-  });
+    document.getElementById('calc-arr').textContent = fmtMoney(annualRevenue);
+    document.getElementById('calc-arr-doors').textContent = doorsPerMonth;
+    document.getElementById('calc-mrr').textContent = fmtMoney(mrrAfter12);
+    document.getElementById('calc-leasing').textContent = fmtMoney(leasingYear);
+    document.getElementById('calc-payback').textContent = payback === 1 ? '< 1 mo' : payback + ' mo';
+
+    const interpEl = document.getElementById('calc-interp');
+    if (mrrAfter12 >= 20000) {
+      interpEl.textContent = "Those numbers say the program pays for itself many times over. The bigger question is whether you'll actually fly to Austin and do the work. If yes, text Jason and let's talk timing.";
+    } else if (mrrAfter12 >= 5000) {
+      interpEl.textContent = "Cash-positive territory. Once you're a few months into adds, the membership is paying for itself and you're netting the rest. This is where most of our clients land.";
+    } else if (mrrAfter12 >= 1500) {
+      interpEl.textContent = "You'd offset the membership inside the first year. The leasing fees from your first wave usually cover the launch package. Worth a conversation.";
+    } else {
+      interpEl.textContent = "Tight at this scale. We'd want to talk through whether a smaller starting program (or our free Clarity Assessment first) makes more sense.";
+    }
+  }
+
+  doorsEl.addEventListener('input', recalc);
+  feeEl.addEventListener('input', recalc);
+  rentEl.addEventListener('input', recalc);
+  recalc();
 })();
 </script>
 
